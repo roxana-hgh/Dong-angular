@@ -1,0 +1,311 @@
+<div class="py-3">
+  <!-- <h3 class="text-lg font-bold mb-3">Group Setup</h3> -->
+  <h5 class="text-lg font-bold mb-3">Expenses</h5>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+    <div class="lg:col-span-2">
+      <div class="py-2">
+        <div class="w-full max-w-xl min-w-[300px]">
+          <div class="py-2 my-2">
+            <label class="block mb-2 font-medium text-sm px-1 text-slate-600">
+              Expense Name
+            </label>
+            <input
+              class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+              placeholder="Expense Name..."
+            />
+          </div>
+          <div class="py-2 my-2">
+            <label class="block mb-2 font-medium text-sm px-1 text-slate-600">
+              Expense Amount
+            </label>
+            <input
+              class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+              type="number"
+              placeholder="Expense Amount..."
+            />
+          </div>
+          <div class="py-2 my-2">
+            <label class="block mb-2 font-medium text-sm px-1 text-slate-600">
+              Who Payed
+            </label>
+            <div class="relative">
+              <select
+                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
+              >
+                <option value="1">Roxana</option>
+                <option value="2">Taylor</option>
+                <option value="3">Roxana</option>
+                <option value="4">Taylor</option>
+              </select>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.2"
+                stroke="currentColor"
+                class="h-5 w-5 ml-1 absolute top-2.5 right-2.5 text-slate-700"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="py-2 my-2">
+            <div
+              class="relative max-w-xl flex w-full flex-col rounded-xl bg-white shadow"
+            >
+              <label class="block font-medium text-sm p-3 text-slate-600">
+                split between
+              </label>
+              <nav class="flex flex-col min-w-[240px] flex-row gap-1 p-2">
+                <div
+                  role="button"
+                  class="flex w-full items-center rounded-lg p-0 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+                >
+                  <label
+                    for="check-vertical-list-group4"
+                    class="flex w-full cursor-pointer items-center px-3 py-2"
+                  >
+                    <div class="inline-flex items-center">
+                      <label
+                        class="flex items-center cursor-pointer relative"
+                        for="check-vertical-list-group4"
+                      >
+                        <input
+                          type="checkbox"
+                          class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                          id="check-vertical-list-group4"
+                        />
+                        <span
+                          class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-3.5 w-3.5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            stroke-width="1"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </span>
+                      </label>
+                      <label
+                        class="cursor-pointer ml-2 text-slate-600 text-sm"
+                        for="check-vertical-list-group4"
+                      >
+                      Roxana
+                      </label>
+                    </div>
+                  </label>
+                </div>
+                <div
+                  role="button"
+                  class="flex w-full items-center rounded-lg p-0 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+                >
+                  <label
+                    for="check-vertical-list-group5"
+                    class="flex w-full cursor-pointer items-center px-3 py-2"
+                  >
+                    <div class="inline-flex items-center">
+                      <label
+                        class="flex items-center cursor-pointer relative"
+                        for="check-vertical-list-group5"
+                      >
+                        <input
+                          type="checkbox"
+                          class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                          id="check-vertical-list-group5"
+                        />
+                        <span
+                          class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-3.5 w-3.5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            stroke-width="1"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </span>
+                      </label>
+                      <label
+                        class="cursor-pointer ml-2 text-slate-600 text-sm"
+                        for="check-vertical-list-group5"
+                      >
+                        Taylor
+                      </label>
+                    </div>
+                  </label>
+                </div>
+                <div
+                  role="button"
+                  class="flex w-full items-center rounded-lg p-0 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+                >
+                  <label
+                    for="check-vertical-list-group6"
+                    class="flex w-full cursor-pointer items-center px-3 py-2"
+                  >
+                    <div class="inline-flex items-center">
+                      <label
+                        class="flex items-center cursor-pointer relative"
+                        for="check-vertical-list-group6"
+                      >
+                        <input
+                          type="checkbox"
+                          class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                          id="check-vertical-list-group6"
+                        />
+                        <span
+                          class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-3.5 w-3.5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            stroke-width="1"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </span>
+                      </label>
+                      <label
+                        class="cursor-pointer ml-2 text-slate-600 text-sm"
+                        for="check-vertical-list-group6"
+                      >
+                        Jack
+                      </label>
+                    </div>
+                  </label>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="py-2">
+        <div class="w-full max-w-xl min-w-[300px]">
+          <button class="flex items-center justify-center gap-1 w-full  rounded-md bg-slate-200 py-2 px-4 mb-3 border border-transparent text-center text-sm text-slate-900 transition-all shadow-sm hover:shadow-lg focus:bg-slate-300 focus:shadow-none active:bg-slate-300 hover:bg-slate-300 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+            Add Another Expense
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <button [routerLink]="['/summary']"
+            type="submit"
+            class="w-full  rounded-md bg-slate-800 py-2 px-4 mb-3 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          >
+            View Summary
+          </button>
+
+          <button [routerLink]="['/group']" class="rounded-md border border-transparent py-2 px-4 flex items-center justify-center w-full text-center text-sm transition-all text-slate-600 hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+           
+            Back to Group Setup
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-1 px-2">
+     
+      <div class="rounded-lg p-2 bg-white shadow-sm border border-slate-200">
+        <h5 class="text-balance p-2 font-bold mb-3">Expenses list</h5>
+        <div class="relative flex flex-col ">
+          <nav class="flex min-w-[240px] flex-col gap-1 p-1.5">
+            <div
+              role="button"
+              class="text-slate-800 flex w-full items-center rounded-md p-2 pl-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+            >
+            <div>
+              <h6 class="text-slate-800 font-medium">
+               Item One
+              </h6>
+              <p class="text-slate-500 text-sm">
+                1200 $
+              </p>
+            </div>
+              <div class="ml-auto grid place-items-center justify-self-end">
+                <button class="rounded-md border border-transparent p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              role="button"
+              class="text-slate-800 flex w-full items-center rounded-md p-2 pl-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+            >
+            <div>
+              <h6 class="text-slate-800 font-medium">
+               Item One
+              </h6>
+              <p class="text-slate-500 text-sm">
+                1200 $
+              </p>
+            </div>
+              <div class="ml-auto grid place-items-center justify-self-end">
+                <button class="rounded-md border border-transparent p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              role="button"
+              class="text-slate-800 flex w-full items-center rounded-md p-2 pl-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+            >
+            <div>
+              <h6 class="text-slate-800 font-medium">
+               Item One
+              </h6>
+              <p class="text-slate-500 text-sm">
+                1200 $
+              </p>
+            </div>
+              <div class="ml-auto grid place-items-center justify-self-end">
+                <button class="rounded-md border border-transparent p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

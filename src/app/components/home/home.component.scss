@@ -1,0 +1,9 @@
+.image-container {
+    img {
+        width: 100%;
+        display: block;
+        max-height: 350px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
