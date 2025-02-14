@@ -10,6 +10,7 @@ import { ExpenseEntryComponent } from './components/expense-entry/expense-entry.
 import { ExpenseSummaryComponent } from './components/expense-summary/expense-summary.component';
 import { BaseComponent } from './components/base/base.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,8 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
