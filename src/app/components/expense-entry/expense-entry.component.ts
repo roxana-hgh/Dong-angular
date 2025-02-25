@@ -60,6 +60,7 @@ export class ExpenseEntryComponent implements OnInit {
 
     this.groupExpenseService.addExpense(expense);
     this.expenses = this.groupExpenseService.getExpenses();
+    this.splitBetween.clear();
     this.expenseForm.reset();
 
     if (this.groupMembers.length) {
