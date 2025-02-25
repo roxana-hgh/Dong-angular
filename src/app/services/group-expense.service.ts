@@ -245,16 +245,16 @@ export class GroupExpenseService {
   // =========================
 
   private saveData(): void {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.groupData));
+    sessionStorage.setItem(this.storageKey, JSON.stringify(this.groupData));
   }
 
   private loadData(): void {
-    const data = localStorage.getItem(this.storageKey);
+    const data = sessionStorage.getItem(this.storageKey);
     if (data) {
       try {
         this.groupData = JSON.parse(data);
       } catch (error) {
-        console.error('Error parsing group data from localStorage:', error);
+        console.error('Error parsing group data from sessionStorage:', error);
         // Reset data in case of error
         this.groupData = {
           groupMembers: [],
@@ -266,7 +266,7 @@ export class GroupExpenseService {
 
   // Optional: Clear all stored data
   clearData(): void {
-    localStorage.removeItem(this.storageKey);
+    sessionStorage.removeItem(this.storageKey);
     this.groupData = {
       groupMembers: [],
       expenses: []
