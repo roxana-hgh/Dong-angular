@@ -11,6 +11,14 @@ import { ExpenseSummaryComponent } from './components/expense-summary/expense-su
 import { BaseComponent } from './components/base/base.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { TranslatePipe } from './shared/pipes/Translate.pipe';
+import { TranslationService } from './services/translation.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,16 +31,24 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExpenseSummaryComponent,
     BaseComponent,
     HeaderComponent,
+    TranslatePipe,
 
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule,
+    MatButtonModule, 
+    MatMenuModule
 
   ],
-  providers: [],
+  providers: [
+    TranslationService,
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

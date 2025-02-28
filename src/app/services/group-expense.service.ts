@@ -1,28 +1,17 @@
 import { Injectable } from '@angular/core';
+import { GroupMember } from '../interfaces/GroupMember';
+import { Expense } from '../interfaces/Expense';
+import { Settlement } from '../interfaces/settlement';
 
-// Define interfaces for our data structures
-export interface GroupMember {
-  name: string;
-}
 
-export interface Expense {
-  expenseName: string;
-  amount: number;
-  paidBy: string;
-  splitBetween: string[]; // List of member names sharing the expense
-}
+
 
 export interface GroupData {
   groupMembers: GroupMember[];
   expenses: Expense[];
 }
 
-// New interface for debt settlement
-export interface Settlement {
-  from: string;
-  to: string;
-  amount: number;
-}
+
 
 @Injectable({
   providedIn: 'root'

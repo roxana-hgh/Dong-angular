@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private translationService: TranslationService){}
+
+  set_lang(lang: string) {
+    this.translationService.setLanguage(lang);
+  }
 }

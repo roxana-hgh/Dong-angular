@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { GroupExpenseService, Expense, GroupMember } from '../../services/group-expense.service';
+import { GroupMember } from '../../interfaces/GroupMember';
+import { Expense } from '../../interfaces/Expense';
+import { GroupExpenseService } from '../../services/group-expense.service';
+
 
 @Component({
   selector: 'app-expense-entry',

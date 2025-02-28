@@ -1,7 +1,7 @@
 <div class="py-3">
   <!-- <h3 class="text-lg font-bold mb-3">Group Setup</h3> -->
-  <h5 class="text-base font-bold mb-3">Who was involved?</h5>
-  <p class="mb-3">Enter group memebers names</p>
+  <h5 class="text-base font-bold mb-3">{{'who_involved' | translate | async}}</h5>
+  <p class="mb-3">{{'enter_group_name' | translate | async}}</p>
 
   <div class="py-2">
     <div class="w-full max-w-xl min-w-[300px]">
@@ -9,11 +9,11 @@
         <div class="relative">
           <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
             class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-16 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-            placeholder="Add memebers" formControlName="memberName" />
+            placeholder="{{'add_member' | translate | async}}" formControlName="memberName" />
           <button [disabled]="membersForm.invalid"
             class="absolute right-1 top-1 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="submit">
-            Add
+            {{'add' | translate | async}}
           </button>
         </div>
       </form>
@@ -57,9 +57,9 @@
     <div class="w-full max-w-xl min-w-[300px]">
       <div class="flex justify-between">
         <button [routerLink]="['/start']"
-          class="bg-neutral-100 hover:bg-neutral-200 text-neutral-900 py-1 px-4 rounded-lg d-bloc">back</button>
+          class="bg-neutral-100 hover:bg-neutral-200 text-neutral-900 py-1 px-4 rounded-lg d-bloc"> {{'back' | translate | async}}</button>
         <button [routerLink]="['/expenses']" [disabled]="groupMembers.length === 0"
-          class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Continue</button>
+          class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"> {{'continue' | translate | async}}</button>
       </div>
     </div>
   </div>
