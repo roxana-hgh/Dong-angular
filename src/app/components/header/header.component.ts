@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,8 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class HeaderComponent {
 
-  constructor(private translationService: TranslationService){}
+  constructor(){}
+  showFiller = false;
+  @Input() drawer!: MatDrawer;
 
-  set_lang(lang: string) {
-    this.translationService.setLanguage(lang);
-  }
 }

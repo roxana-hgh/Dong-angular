@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GroupExpenseService } from '../../services/group-expense.service';
 import { GroupMember } from '../../interfaces/GroupMember';
 import { Expense } from '../../interfaces/Expense';
-import { Settlement } from '../../interfaces/settlement';
+import { Settlement } from '../../interfaces/Settlement';
+
 
 interface ExpenseDetail {
   expenseName: string;

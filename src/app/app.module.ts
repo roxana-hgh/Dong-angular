@@ -15,6 +15,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from './shared/pipes/Translate.pipe';
 import { TranslationService } from './services/translation.service';
@@ -42,6 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RouterModule,
     MatButtonModule, 
+    MatSidenavModule,
     MatMenuModule
 
   ],

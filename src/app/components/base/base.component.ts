@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-base',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './base.component.scss'
 })
 export class BaseComponent {
-
+constructor(private translationService: TranslationService) {}
+set_lang(lang: string) {
+  this.translationService.setLanguage(lang);
+}
 }

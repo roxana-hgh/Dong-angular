@@ -98,7 +98,7 @@
       <div class="py-2">
         <div class="w-full max-w-xl min-w-[300px]">
           <button 
-          class="flex items-center justify-center gap-1 w-full  rounded-md bg-slate-200 py-2 px-4 mb-3 border border-transparent text-center text-sm text-slate-900 transition-all shadow-sm hover:shadow-lg focus:bg-slate-300 focus:shadow-none active:bg-slate-300 hover:bg-slate-300 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" 
+          class="flex items-center justify-center gap-1 w-full  rounded-md bg-slate-200 py-2 px-4 mb-3 border border-transparent text-center text-sm text-slate-900 transition-all shadow-sm hover:shadow-lg focus:bg-slate-300 focus:shadow-none active:bg-slate-300 hover:bg-slate-300 active:shadow-none disabled:pointer-events-none border-slate-500 disabled:opacity-50 disabled:shadow-none" 
           type="submit">
             {{'add_expense' | translate | async}}
             <span>
@@ -135,14 +135,14 @@
     <div class="lg:col-span-1 px-2">
      
       <div *ngIf="expenses.length > 0" class="rounded-lg p-2 bg-white shadow-sm border border-slate-200">
-        <h5 class="text-balance p-2 font-bold mb-3">{{'expenses_list' | translate | async}}</h5>
+        <h5 class="text-balance p-2 font-bold mb-1">{{'expenses_list' | translate | async}}</h5>
         <div class="relative flex flex-col ">
           <nav class="flex min-w-[240px] flex-col gap-1 p-1.5">
             <div
             *ngFor="let expense of expenses; let i = index"
-            class="flex w-full items-center rounded-md p-2 pl-3 hover:bg-slate-100"
+            class="flex w-full items-center rounded-md p-2 hover:bg-slate-100"
           >
-            <div>
+            <div class="px-1">
               <h6 class="font-medium">{{ expense.expenseName }}</h6>
               <p class="text-sm text-slate-500">{{ expense.amount }} $</p>
               <p class="text-sm text-slate-500">{{'paid_by' | translate | async}} {{ expense.paidBy }}</p>
