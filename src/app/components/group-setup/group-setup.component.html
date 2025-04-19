@@ -2,99 +2,119 @@
   <div class="py-3 mt-5">
     <div class="w-full m-auto max-w-xl min-w-[300px]">
       <!-- <h3 class="text-lg font-bold mb-3">Group Setup</h3> -->
-      <h5 class="text-base font-bold mb-3">
-        {{ "who_involved" | translate | async }}
-      </h5>
-      <p class="mb-3">{{ "enter_group_name" | translate | async }}</p>
-      <form [formGroup]="membersForm" (ngSubmit)="addmember()">
-        <div class="relative">
-          <input
-            type="text"
-            ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
-            class="w-full bg-transparent placeholder:text-slate-300 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-16 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300"
-            placeholder="{{ 'add_member' | translate | async }}"
-            formControlName="memberName"
-          />
-          <button
-            [disabled]="membersForm.invalid"
-            class="absolute h-full right-0 top-0 flex items-center gap-1 rounded-r-md bg-slate-800 px-3 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-900 focus:shadow-none active:bg-slate-900 hover:bg-slate-900 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
-            type="submit"
-          >
-            <span>{{ "add" | translate | async }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2"
-              />
-            </svg>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-  
-  <div class="py-3">
-    <div
-      *ngIf="groupMembers.length > 0"
-      class="relative flex flex-col w-full max-w-xl min-w-[300px] m-auto rounded-lg border border-slate-200 bg-white shadow-sm"
-    >
-      <nav class="flex flex-col gap-1 p-1.5">
-        <div
-          role="button"
-          *ngFor="let member of groupMembers; let i = index"
-          class="text-slate-800 flex w-full items-center rounded-md p-2 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
-        >
-          <div class="mr-4 grid place-items-center">
-            <span
-              class="avatar bg-slate-700 p-1 text-white relative rounded-full"
-            >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="6" r="4" fill="currentColor"/><path fill="currentColor" d="M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5"/></svg>
-            </span>
-          </div>
-          <div>
-            <h6 class="text-slate-800 font-medium">
-              {{ member }}
-            </h6>
-          </div>
-          <span
-            (click)="removeMember(member)"
-            class="block text-sm text-neutral-400 hover:text-red-600 justify-self-end ml-auto px-2 remove-member-btn"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
-              />
-            </svg>
-          </span>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
-  <div class="py-3">
-    <div class="w-full max-w-xl min-w-[300px] m-auto">
-      <div class="flex justify-between">
+      <div class="flex gap-2 items-center mb-2">
         <button
           [routerLink]="['/start']"
-          class="bg-neutral-100 hover:bg-neutral-200 text-neutral-900 py-1 px-4 rounded-lg d-bloc"
+          class="bg-neutral-50 hover:bg-neutral-200 text-neutral-900 p-2 rounded-lg block"
         >
-          {{ "back" | translate | async }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M14.601 4.47a.75.75 0 0 1 0 1.06l-6.364 6.364a.25.25 0 0 0 0 .354l6.364 6.364a.75.75 0 0 1-1.06 1.06L7.177 13.31a1.75 1.75 0 0 1 0-2.475L13.54 4.47a.75.75 0 0 1 1.06 0"
+              clip-rule="evenodd"
+            />
+          </svg>
         </button>
+      </div>
+      <div class="my-4">
+        <h4 class="text-lg mb-2 font-bold">
+          {{ "who_involved" | translate | async }}
+        </h4>
+        <p class="mb-3">{{ "enter_group_name" | translate | async }}</p>
+      </div>
+      <div class="py-2 my-3">
+        <form class="mb-4" [formGroup]="membersForm" (ngSubmit)="addmember()">
+          <div class="relative w-100 flex gap-1 align-items-stretch">
+            <input
+              type="text"
+              ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
+              class="bg-transparent grow placeholder:text-slate-300 text-slate-700 text-sm border border-slate-300 rounded-md pl-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300"
+              placeholder="{{ 'add_member' | translate | async }}"
+              formControlName="memberName"
+            />
+            <button
+              [disabled]="membersForm.invalid"
+              class="h-full rounded-md bg-slate-800 p-3 text-center text-base text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-900 focus:shadow-none active:bg-slate-900 hover:bg-slate-900 active:shadow-none disabled:pointer-events-none disabled:opacity-70 disabled:shadow-none cursor-pointer"
+              type="submit"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+        <div
+          *ngIf="groupMembers.length > 0"
+          class="relative mt-4 flex flex-col w-full max-w-xl min-w-[300px] m-auto bg-white"
+        >
+          <nav class="flex flex-col gap-2">
+            <div
+              role="button"
+              *ngFor="let member of groupMembers; let i = index"
+              class="text-slate-800 flex w-full border border-slate-200 items-center rounded-lg p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+            >
+              <div class="mr-4 grid place-items-center">
+                <span
+                  class="avatar bg-slate-700 p-2 text-white relative rounded-full"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="6" r="4" fill="currentColor" />
+                    <path
+                      fill="currentColor"
+                      d="M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div>
+                <h6 class="text-slate-800 font-base font-semibold">
+                  {{ member }}
+                </h6>
+              </div>
+              <span
+                (click)="removeMember(member)"
+                class="block text-sm text-neutral-400 hover:text-red-600 justify-self-end ml-auto px-2 remove-member-btn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="my-5">
         <button
           [routerLink]="['/expenses']"
           [disabled]="groupMembers.length === 0"
-          class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          class="rounded-md w-full bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-70 disabled:shadow-none"
         >
           {{ "continue" | translate | async }}
         </button>

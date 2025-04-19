@@ -1,5 +1,5 @@
 <mat-drawer-container
-  class="h-full example-container bg-transparent"
+  class="h-full bg-transparent"
   [hasBackdrop]="true"
 >
   <!-- Sidenav Drawer -->
@@ -63,7 +63,7 @@
   <!-- Main Content -->
   <mat-drawer-content class="bg-white">
     <app-header [drawer]="drawer"></app-header>
-    <main class="container mx-auto px-3 md:px-4 lg:px-40">
+    <main class="container-sm mx-auto px-3 md:px-4 lg:px-40">
       <router-outlet></router-outlet>
     </main>
   </mat-drawer-content>
