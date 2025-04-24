@@ -1,4 +1,3 @@
-# Dong
 # Dong - Group Expense Sharing App
 
 Dong is a simple, intuitive application for splitting expenses among groups of friends, roommates, or travel companions. It helps track who paid for what and calculates the optimal settlement payments to ensure everyone is paid back fairly.
@@ -30,7 +29,7 @@ This approach makes repayments more intuitive and transparent for all users.
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/dong.git
+   git clone https://github.com/roxana-hgh/Dong-angular.git
    ```
 
 2. Navigate to the project directory:
