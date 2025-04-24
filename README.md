@@ -1,27 +1,79 @@
 # Dong
+# Dong - Group Expense Sharing App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+Dong is a simple, intuitive application for splitting expenses among groups of friends, roommates, or travel companions. It helps track who paid for what and calculates the optimal settlement payments to ensure everyone is paid back fairly.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Easy Member Management**: Add and remove group members with a simple interface
+- **Expense Tracking**: Record expenses with details about who paid and how the cost should be split
+- **Smart Settlement Calculation**: Automatically calculates who owes what to whom using direct payment logic
+- **Detailed Breakdowns**: View detailed expense reports for each member
+- **Persistent Storage**: Data is saved between sessions in your browser
 
-## Code scaffolding
+## How It Works
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Dong uses a direct payment settlement system where:
 
-## Build
+1. Each person pays directly to whoever initially paid for an expense
+2. When two people owe each other, they only pay the difference to minimize unnecessary transactions
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This approach makes repayments more intuitive and transparent for all users.
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Angular**: Frontend framework for building the application interface
+- **TypeScript**: For type-safe programming
+- **Browser Storage**: Uses sessionStorage to persist data between page reloads
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/dong.git
+   ```
 
-## Further help
+2. Navigate to the project directory:
+   ```
+   cd dong
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Install dependencies:
+   ```
+   npm install
+   ```
+
+4. Run the development server:
+   ```
+   ng serve
+   ```
+
+5. Open your browser and navigate to `http://localhost:4200`
+
+## Usage
+
+### Adding Members
+
+1. Enter a name in the "Add Member" field
+2. Click "Add" to add the member to your group
+
+### Recording Expenses
+
+1. Click "Add Expense"
+2. Enter expense details:
+   - Name of the expense
+   - Amount paid
+   - Who paid for it
+   - Which members to split the expense between
+3. Save the expense
+
+### Viewing Settlements
+
+1. Navigate to the "Settlements" tab
+2. View the list of payments needed to settle all expenses
+3. Mark payments as complete once they've been made
+
+## Acknowledgments
+
+- Inspired by the need for a simple, intuitive expense sharing solution
+- Name "Dong" comes from a Persian word meaning "share"
