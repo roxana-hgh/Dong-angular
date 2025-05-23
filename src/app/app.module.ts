@@ -19,38 +19,29 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from './shared/pipes/Translate.pipe';
 import { TranslationService } from './services/translation.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    GroupSetupComponent,
-    ExpenseEntryComponent,
-    ExpenseSummaryComponent,
-    BaseComponent,
-    HeaderComponent,
-    TranslatePipe,
-
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule,
-    MatButtonModule, 
-    MatSidenavModule,
-    MatMenuModule
-
-  ],
-  providers: [
-    TranslationService,
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        GroupSetupComponent,
+        ExpenseEntryComponent,
+        ExpenseSummaryComponent,
+        BaseComponent,
+        HeaderComponent,
+        TranslatePipe,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        RouterModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatMenuModule], providers: [
+        TranslationService,
+        provideAnimationsAsync(),
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
