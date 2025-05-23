@@ -4,8 +4,9 @@ import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Pipe({
-  name: 'translate',
-  pure: false
+    name: 'translate',
+    pure: false,
+    standalone: false
 })
 export class TranslatePipe implements PipeTransform {
   constructor(

@@ -3,9 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GroupExpenseService } from '../../services/group-expense.service';
 
 @Component({
-  selector: 'app-group-setup',
-  templateUrl: './group-setup.component.html',
-  styleUrl: './group-setup.component.scss'
+    selector: 'app-group-setup',
+    templateUrl: './group-setup.component.html',
+    styleUrl: './group-setup.component.scss',
+    standalone: false
 })
 export class GroupSetupComponent {
 

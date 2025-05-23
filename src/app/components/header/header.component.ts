@@ -3,9 +3,10 @@ import { TranslationService } from '../../services/translation.service';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    standalone: false
 })
 export class HeaderComponent {
 

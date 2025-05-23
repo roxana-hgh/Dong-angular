@@ -6,9 +6,10 @@ import { GroupExpenseService } from '../../services/group-expense.service';
 
 
 @Component({
-  selector: 'app-expense-entry',
-  templateUrl: './expense-entry.component.html',
-  styleUrls: ['./expense-entry.component.scss']
+    selector: 'app-expense-entry',
+    templateUrl: './expense-entry.component.html',
+    styleUrls: ['./expense-entry.component.scss'],
+    standalone: false
 })
 export class ExpenseEntryComponent implements OnInit {
   expenseForm: FormGroup;

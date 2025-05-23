@@ -22,9 +22,10 @@ interface MemberSummary {
 }
 
 @Component({
-  selector: 'app-expense-summary',
-  templateUrl: './expense-summary.component.html',
-  styleUrls: ['./expense-summary.component.scss']
+    selector: 'app-expense-summary',
+    templateUrl: './expense-summary.component.html',
+    styleUrls: ['./expense-summary.component.scss'],
+    standalone: false
 })
 export class ExpenseSummaryComponent implements OnInit {
   members: GroupMember[] = [];
