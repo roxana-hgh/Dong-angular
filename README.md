@@ -1,31 +1,48 @@
-# Dong - Group Expense Sharing App
+# Dong – Group Expense Sharing App 💸
 
-Dong is a simple, intuitive application for splitting expenses among groups of friends, roommates, or travel companions. It helps track who paid for what and calculates the optimal settlement payments to ensure everyone is paid back fairly.
+**Dong** is a simple and intuitive web application for splitting expenses among friends, roommates, or travel companions.  
+It tracks shared expenses and calculates the optimal payments needed to settle up fairly with minimal hassle.
 
-## Features
+> 🪙 *“Dong” comes from a Persian word meaning “share.”*
 
-- **Easy Member Management**: Add and remove group members with a simple interface
-- **Expense Tracking**: Record expenses with details about who paid and how the cost should be split
-- **Smart Settlement Calculation**: Automatically calculates who owes what to whom using direct payment logic
-- **Detailed Breakdowns**: View detailed expense reports for each member
-- **Persistent Storage**: Data is saved between sessions in your browser
+## 🌐 Live Demo
 
-## How It Works
+🔗 [Try the App](https://roxana-hgh.github.io/Dong-angular/start)
 
-Dong uses a direct payment settlement system where:
+## 🧰 Tech Stack
 
-1. Each person pays directly to whoever initially paid for an expense
-2. When two people owe each other, they only pay the difference to minimize unnecessary transactions
+- **Angular** – Application framework
+- **TypeScript** – Typed JavaScript for scalable development
+- **Tailwind css** – For responsive and clean UI
+- **Browser Storage** – Uses `sessionStorage` to persist data across sessions
 
-This approach makes repayments more intuitive and transparent for all users.
+## ✨ Features
 
-## Technologies Used
+- 👥 **Easy Member Management**  
+  Add and remove group members effortlessly with a user-friendly interface.
 
-- **Angular**: Frontend framework for building the application interface
-- **TypeScript**: For type-safe programming
-- **Browser Storage**: Uses sessionStorage to persist data between page reloads
+- 💰 **Expense Tracking**  
+  Record who paid for what, how much, and who should share the cost.
 
-## Installation
+- 🔄 **Smart Settlement Calculation**  
+  Uses direct payment logic to simplify debts and reduce unnecessary transactions.
+
+- 📊 **Detailed Breakdowns**  
+  See clear reports of individual contributions and balances.
+
+- 💾 **Persistent Storage**  
+  Keeps your data safe between sessions using in-browser storage (no backend needed).
+
+## ⚙️ How It Works
+
+Dong uses a **direct payment settlement system**, meaning:
+
+- Everyone pays the person who originally covered the expense.
+- If two users owe each other, they only pay the **difference** to minimize transactions.
+  
+This keeps repayments **intuitive**, **transparent**, and fair.
+
+## 📦 Installation
 
 1. Clone the repository:
    ```
@@ -49,14 +66,14 @@ This approach makes repayments more intuitive and transparent for all users.
 
 5. Open your browser and navigate to `http://localhost:4200`
 
-## Usage
+## 🧑‍💻 Usage ##
 
-### Adding Members
+###  ➕ Adding Members
 
 1. Enter a name in the "Add Member" field
 2. Click "Add" to add the member to your group
 
-### Recording Expenses
+### 🧾  Recording Expenses
 
 1. Click "Add Expense"
 2. Enter expense details:
@@ -66,13 +83,13 @@ This approach makes repayments more intuitive and transparent for all users.
    - Which members to split the expense between
 3. Save the expense
 
-### Viewing Settlements
+### 💳 Viewing Settlements
 
 1. Navigate to the "Settlements" tab
 2. View the list of payments needed to settle all expenses
 3. Mark payments as complete once they've been made
 
-## Acknowledgments
+## 📌 Acknowledgments
 
 - Inspired by the need for a simple, intuitive expense sharing solution
 - Name "Dong" comes from a Persian word meaning "share"
