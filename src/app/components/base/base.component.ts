@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslationService } from '../../services/translation.service';
+
 
 @Component({
     selector: 'app-base',
@@ -8,8 +8,6 @@ import { TranslationService } from '../../services/translation.service';
     standalone: false
 })
 export class BaseComponent {
-constructor(private translationService: TranslationService) {}
-set_lang(lang: string) {
-  this.translationService.setLanguage(lang);
-}
+constructor() {}
+
 }

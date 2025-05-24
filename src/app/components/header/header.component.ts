@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
-import { MatDrawer } from '@angular/material/sidenav';
+
+import { Drawer } from 'primeng/drawer';
 
 @Component({
     selector: 'app-header',
@@ -10,8 +11,23 @@ import { MatDrawer } from '@angular/material/sidenav';
 })
 export class HeaderComponent {
 
-  constructor(){}
+  constructor(private translationService: TranslationService){}
   showFiller = false;
-  @Input() drawer!: MatDrawer;
+   @ViewChild('drawerRef') drawerRef!: Drawer;
+
+    closeCallback(e: Event): void {
+        this.drawerRef.close(e);
+    }
+
+    toggleDarkMode() {
+    const element = document.querySelector('html');
+    element?.classList.toggle('my-app-dark');
+}
+
+    visible: boolean = false;
+
+    set_lang(lang: string) {
+  this.translationService.setLanguage(lang);
+}
 
 }
