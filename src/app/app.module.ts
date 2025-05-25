@@ -9,10 +9,10 @@ import { ExpenseEntryComponent } from './components/expense-entry/expense-entry.
 import { ExpenseSummaryComponent } from './components/expense-summary/expense-summary.component';
 import { BaseComponent } from './components/base/base.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DrawerModule } from 'primeng/drawer';
-import { MatMenuModule } from '@angular/material/menu';
+import { SelectButton } from 'primeng/selectbutton';
 import { MatButtonModule } from '@angular/material/button';
 
 import { RouterModule } from '@angular/router';
@@ -26,6 +26,7 @@ import {
 import { providePrimeNG } from 'primeng/config';
 
 import { ButtonModule } from 'primeng/button';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 import MyPreset from '../mypreset';
 
 
@@ -46,13 +47,12 @@ import MyPreset from '../mypreset';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule,
-    DrawerModule,
     MatButtonModule,
-    
-    MatMenuModule,
-    ButtonModule
-    
+    SelectButton,
+    ButtonModule,
+    DrawerModule
   ],
   providers: [
     TranslationService,

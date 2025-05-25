@@ -1,33 +1,49 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 
 import { Drawer } from 'primeng/drawer';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss',
-    standalone: false
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
+  standalone: false,
 })
-export class HeaderComponent {
-
-  constructor(private translationService: TranslationService){}
+export class HeaderComponent implements OnInit {
+  constructor(private translationService: TranslationService) {}
   showFiller = false;
-   @ViewChild('drawerRef') drawerRef!: Drawer;
+  visible: boolean = false;
+  darkMode: boolean = false;
+  ThemeModeOptions: any[] = [{ label: 'Dark', value: true },{ label: 'Light', value: false }];
+  langOptions: any[] = [
+    { label: 'En', value: 'en' },
+    { label: 'فا', value: 'fa' },
+    
+  ]
+  Langvalue: string = 'en';
+  @ViewChild('drawerRef') drawerRef!: Drawer;
 
-    closeCallback(e: Event): void {
-        this.drawerRef.close(e);
-    }
+  
+ngOnInit(): void {
+  this.translationService.getLanguage().subscribe((lang) => {
+    this.Langvalue = lang;
+  });
+}
+  closeCallback(e: Event): void {
+    this.drawerRef.close(e);
+  }
 
-    toggleDarkMode() {
+  toggleDarkMode() {
     const element = document.querySelector('html');
-    element?.classList.toggle('my-app-dark');
-}
+    
+    this.darkMode
+      ? element?.classList.add('my-app-dark')
+      : element?.classList.remove('my-app-dark');
+   
+  }
 
-    visible: boolean = false;
-
-    set_lang(lang: string) {
-  this.translationService.setLanguage(lang);
-}
-
+  set_lang() {
+    const lang = this.Langvalue;
+    this.translationService.setLanguage(lang);
+  }
 }
