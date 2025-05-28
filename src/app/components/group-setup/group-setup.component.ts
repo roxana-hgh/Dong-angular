@@ -3,46 +3,62 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GroupExpenseService } from '../../services/group-expense.service';
 
 @Component({
-    selector: 'app-group-setup',
-    templateUrl: './group-setup.component.html',
-    styleUrl: './group-setup.component.scss',
-    standalone: false
+  selector: 'app-group-setup',
+  templateUrl: './group-setup.component.html',
+  styleUrl: './group-setup.component.scss',
+  standalone: false,
 })
 export class GroupSetupComponent {
-
   membersForm!: FormGroup;
   groupMembers: string[] = [];
+   activeStep: number = 1;
 
-  constructor(
-    private groupExpenseService: GroupExpenseService
-  ) { }
+  items = [
+    {
+      label: 'Group',
+      routerLink: '/group',
+    },
+    {
+      label: 'Expenses',
+      routerLink: '/summary',
+    },
+    {
+      label: 'Summary',
+      routerLink: '/expenses',
+    },
+  ];
 
+  constructor(private groupExpenseService: GroupExpenseService) {}
 
   ngOnInit() {
     this.membersForm = new FormGroup({
-      memberName: new FormControl(null, Validators.required)
+      memberName: new FormControl(null, Validators.required),
     });
 
-    this.groupMembers = this.groupExpenseService.getMembers().map(member => member.name);
+    this.groupMembers = this.groupExpenseService
+      .getMembers()
+      .map((member) => member.name);
     console.log(this.groupMembers);
     console.log(this.groupMembers.length);
-    
-    
   }
 
   addmember() {
     const memberName = this.membersForm.value.memberName;
-    if(memberName){
+    if (memberName) {
       this.groupExpenseService.addMember(memberName);
-    this.membersForm.reset();
-    this.groupMembers = this.groupExpenseService.getMembers().map(member => member.name);
-    console.log(this.groupMembers);
+      this.membersForm.reset();
+      this.groupMembers = this.groupExpenseService
+        .getMembers()
+        .map((member) => member.name);
+      console.log(this.groupMembers);
     }
   }
 
   removeMember(memberName: string) {
     this.groupExpenseService.removeMember(memberName);
-    this.groupMembers = this.groupExpenseService.getMembers().map(member => member.name);
+    this.groupMembers = this.groupExpenseService
+      .getMembers()
+      .map((member) => member.name);
     console.log(this.groupMembers);
   }
 }

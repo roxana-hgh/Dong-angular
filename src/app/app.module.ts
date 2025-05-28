@@ -13,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DrawerModule } from 'primeng/drawer';
 import { SelectButton } from 'primeng/selectbutton';
-import { MatButtonModule } from '@angular/material/button';
+import { StepperModule } from 'primeng/stepper';
+
 
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from './shared/pipes/Translate.pipe';
@@ -26,7 +27,7 @@ import {
 import { providePrimeNG } from 'primeng/config';
 
 import { ButtonModule } from 'primeng/button';
-import { ToggleButtonModule } from 'primeng/togglebutton';
+import { StepsModule } from 'primeng/steps';
 import MyPreset from '../mypreset';
 
 
@@ -49,10 +50,11 @@ import MyPreset from '../mypreset';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    MatButtonModule,
     SelectButton,
     ButtonModule,
-    DrawerModule
+    DrawerModule,
+    StepsModule,
+    StepperModule
   ],
   providers: [
     TranslationService,
