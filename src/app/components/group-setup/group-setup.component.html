@@ -61,10 +61,10 @@
       <form class="" [formGroup]="membersForm" (ngSubmit)="addmember()">
         <div class="relative w-100 flex gap-1 align-items-stretch">
           <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
-            class="bg-transparent grow placeholder:text-slate-300 text-slate-700 text-sm border border-slate-300 rounded-full pl-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300"
+            class="bg-transparent grow  text-sm border border-slate-300 rounded-full pl-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300"
             placeholder="{{ 'add_member' | translate | async }}" formControlName="memberName" />
           <button [disabled]="membersForm.invalid"
-            class="h-full rounded-full bg-primary text-primary-contrast p-3 text-center text-base  transition-all shadow-md hover:shadow-lg focus:bg-slate-900 focus:shadow-none active:bg-slate-900 hover:bg-slate-900 active:shadow-none disabled:pointer-events-none disabled:opacity-70 disabled:shadow-none cursor-pointer"
+            class="h-full rounded-full bg-primary text-primary-contrast p-3 text-center text-base  transition-all active:shadow-none disabled:pointer-events-none disabled:opacity-70 disabled:shadow-none cursor-pointer"
             type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
               <path fill="currentColor"
@@ -78,7 +78,7 @@
       <div *ngIf="groupMembers.length > 0" class="relative mt-4 flex flex-col w-full max-w-xl  m-auto">
         <nav class="flex flex-col gap-2">
           <div role="button" *ngFor="let member of groupMembers; let i = index"
-            class=" flex w-full rounded-full items-center p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100">
+            class=" flex w-full rounded-full items-center p-3 transition-all ">
             <div class="mr-4 grid place-items-center">
               <span class="avatar bg-primary text-primary-contrast p-2 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@
               </span>
             </div>
             <div>
-              <h6 class="text-slate-800 font-base font-semibold">
+              <h6 class=" font-base font-semibold">
                 {{ member }}
               </h6>
             </div>
