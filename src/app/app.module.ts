@@ -14,7 +14,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { DrawerModule } from 'primeng/drawer';
 import { SelectButton } from 'primeng/selectbutton';
 import { StepperModule } from 'primeng/stepper';
-
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from './shared/pipes/Translate.pipe';
@@ -25,12 +25,11 @@ import {
 } from '@angular/common/http';
 
 import { providePrimeNG } from 'primeng/config';
-
+import { CheckboxModule } from 'primeng/checkbox';
+import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
 import { StepsModule } from 'primeng/steps';
 import MyPreset from '../mypreset';
-
-
 
 @NgModule({
   declarations: [
@@ -50,11 +49,14 @@ import MyPreset from '../mypreset';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    SelectButton,
-    ButtonModule,
     DrawerModule,
+    StepperModule,
+    RadioButtonModule,
+    CheckboxModule,
+    ButtonModule,
     StepsModule,
-    StepperModule
+    SelectButton,
+    BadgeModule
   ],
   providers: [
     TranslationService,

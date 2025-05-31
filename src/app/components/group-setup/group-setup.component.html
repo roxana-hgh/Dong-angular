@@ -1,56 +1,56 @@
 <div class="py-4 my-3">
   <div class="flex justify-center py-2 w-full">
-    <p-stepper [(value)]="activeStep" class="basis-[37rem] ">
+    <p-stepper [(value)]="activeStep" class="basis-[37rem]">
       <p-step-list>
         <p-step [value]="1" class="flex flex-row flex-auto justify-center gap-2">
           <ng-template #content let-activateCallback="activateCallback" let-value="value">
             <button class="bg-transparent border-0 inline-flex flex-col gap-2" routerLink="/group">
               <span class="rounded-full border-2 w-8 h-8 inline-flex items-center justify-center" [ngClass]="{
-                                'bg-primary text-primary-contrast border-primary': value <= activeStep,
-                                'border-surface': value > activeStep
-                            }">
+                  'bg-primary text-primary-contrast border-primary':
+                    value <= activeStep,
+                  'border-surface': value > activeStep
+                }">
                 <i class="pi pi-users"></i>
               </span>
             </button>
           </ng-template>
         </p-step>
 
-        <p-step [value]="2" class="flex flex-row ">
+        <p-step [value]="2" class="flex flex-row">
           <ng-template #content let-activateCallback="activateCallback" let-value="value">
             <button class="bg-transparent border-0 inline-flex flex-col gap-2" [disabled]="true" routerLink="/expenses">
               <span class="rounded-full border w-8 h-8 inline-flex items-center justify-center" [ngClass]="{
-                                'bg-primary text-primary-contrast border-primary': value <= activeStep,
-                                'border-surface': value > activeStep
-                            }">
+                  'bg-primary text-primary-contrast border-primary':
+                    value <= activeStep,
+                  'border-surface': value > activeStep
+                }">
                 <i class="pi pi-money-bill text-sm text-stone-400"></i>
               </span>
             </button>
           </ng-template>
         </p-step>
 
-        <p-step [value]="3" class="flex flex-row ">
+        <p-step [value]="3" class="flex flex-row">
           <ng-template #content let-activateCallback="activateCallback" let-value="value">
             <button class="bg-transparent border-0 inline-flex flex-col gap-2" [disabled]="true" routerLink="/summery">
               <span
                 class="rounded-full border border-indigo-500 w-8 h-8 inline-flex items-center justify-center text-secondary"
                 [ngClass]="{
-                                'bg-primary text-primary-contrast border-primary': value <= activeStep,
-                                'border-surface': value > activeStep
-                            }">
+                  'bg-primary text-primary-contrast border-primary':
+                    value <= activeStep,
+                  'border-surface': value > activeStep
+                }">
                 <i class="pi pi-receipt text-sm text-stone-400"></i>
               </span>
             </button>
           </ng-template>
         </p-step>
       </p-step-list>
-
-
     </p-stepper>
   </div>
 
   <div class="w-full m-auto max-w-xl min-w-[300px] my-4">
-
-    <div class=" border shadow-sm rounded-lg p-3 md:p-4">
+    <div class="border shadow-sm rounded-lg p-3 md:p-4">
       <div class="p-2">
         <h4 class="text-md mb-2 font-bold">
           {{ "who_involved" | translate | async }}
@@ -61,10 +61,10 @@
       <form class="" [formGroup]="membersForm" (ngSubmit)="addmember()">
         <div class="relative w-100 flex gap-1 align-items-stretch">
           <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
-            class="bg-transparent grow  text-sm border border-slate-300 rounded-full pl-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300"
+            class="bg-transparent grow text-sm border border-slate-300 rounded-full pl-3 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300"
             placeholder="{{ 'add_member' | translate | async }}" formControlName="memberName" />
           <button [disabled]="membersForm.invalid"
-            class="h-full rounded-full bg-primary text-primary-contrast p-3 text-center text-base  transition-all active:shadow-none disabled:pointer-events-none disabled:opacity-70 disabled:shadow-none cursor-pointer"
+            class="h-full rounded-full bg-primary text-primary-contrast p-3 text-center text-base transition-all active:shadow-none disabled:pointer-events-none disabled:opacity-70 disabled:shadow-none cursor-pointer"
             type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
               <path fill="currentColor"
@@ -74,11 +74,10 @@
         </div>
       </form>
 
-
-      <div *ngIf="groupMembers.length > 0" class="relative mt-4 flex flex-col w-full max-w-xl  m-auto">
+      <div *ngIf="groupMembers.length > 0" class="relative mt-4 flex flex-col w-full max-w-xl m-auto">
         <nav class="flex flex-col gap-2">
           <div role="button" *ngFor="let member of groupMembers; let i = index"
-            class=" flex w-full rounded-full items-center p-3 transition-all ">
+            class="flex w-full rounded-full items-center p-3 transition-all">
             <div class="mr-4 grid place-items-center">
               <span class="avatar bg-primary text-primary-contrast p-2 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -89,7 +88,7 @@
               </span>
             </div>
             <div>
-              <h6 class=" font-base font-semibold">
+              <h6 class="font-base font-semibold">
                 {{ member }}
               </h6>
             </div>
@@ -103,18 +102,13 @@
           </div>
         </nav>
       </div>
-
     </div>
 
     <div class="my-3 py-2 flex justify-end">
       <button [routerLink]="['/expenses']" [disabled]="groupMembers.length === 0"
-        class="rounded-full w-full mb-3 bg-primary py-2 px-5 border border-transparent text-center text-sm text-primary-contrast transition-all shadow-md hover:shadow-lg  disabled:pointer-events-none disabled:opacity-70 ">
+        class="rounded-full w-full mb-3 bg-primary py-2 px-5 border border-transparent text-center text-sm text-primary-contrast transition-all shadow-md hover:shadow-lg disabled:pointer-events-none disabled:opacity-70">
         {{ "continue" | translate | async }}
-
       </button>
-
     </div>
-
   </div>
-
 </div>

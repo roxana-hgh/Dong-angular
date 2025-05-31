@@ -15,6 +15,22 @@ export class ExpenseEntryComponent implements OnInit {
   expenseForm: FormGroup;
   groupMembers: GroupMember[] = [];
   expenses: Expense[] = [];
+   activeStep: number = 2;
+displaylist = false;
+  items = [
+    {
+      label: 'Group',
+      routerLink: '/group',
+    },
+    {
+      label: 'Expenses',
+      routerLink: '/summary',
+    },
+    {
+      label: 'Summary',
+      routerLink: '/expenses',
+    },
+  ];
 
   constructor(private fb: FormBuilder, private groupExpenseService: GroupExpenseService) {
     this.expenseForm = this.fb.group({
@@ -39,12 +55,13 @@ export class ExpenseEntryComponent implements OnInit {
   }
 
   onCheckboxChange(memberName: string, event: any): void {
-    if (event.target.checked) {
-      this.splitBetween.push(this.fb.control(memberName));
+    const splitBetweenArray = this.expenseForm.get('splitBetween') as FormArray;
+    if (event.checked) {
+      splitBetweenArray.push(this.fb.control(memberName));
     } else {
-      const index = this.splitBetween.controls.findIndex(x => x.value === memberName);
+      const index = splitBetweenArray.controls.findIndex(x => x.value === memberName);
       if (index !== -1) {
-        this.splitBetween.removeAt(index);
+        splitBetweenArray.removeAt(index);
       }
     }
   }
