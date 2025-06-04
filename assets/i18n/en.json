@@ -23,8 +23,8 @@
   "add_expense": "Add Expense",
   "view_summary": "View Summary",
   "back_to_group_setup": "Back to Group Setup",
-  "home_title" : "Easily Share Expenses with Friends",
-  "home_description" : "Create a group, add expenses, Track who paid what, settle up, and keep things fair, all in one place.",
+  "home_title" : "Split expenses with friends, simply.",
+  "home_description" : "Dong makes it easy to share expenses with friends and family for travel, dining, household bills, and more.",
   "paid_by": "Paid by:",
   "split": "Split:",
   "group_expenses_summary": "Group Expenses Summary",
@@ -45,7 +45,18 @@
   "total": "Total:",
   "you_paid": "You paid",
   "expenses_details": "Expenses Details",
-  "share_summary": "Share Summary"
+  "share_summary": "Share Summary",
+  "learn_more": "Learn more",
+   "group_name":  "Group Name",
+   "group_name_placeholder": "e.g. Summer Trip",
+  "group_name_required": "Group name is required",
+  "description": "Description",
+  "optional": "Optional",
+  "cancel": "cancel",
+  "creat_group": "Create a new group",
+  "member_name": "Member Name",
+  "member_email": "Member Email",
+  "members": "Members"
  
  
 }
