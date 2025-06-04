@@ -11,22 +11,9 @@ import { GroupExpenseService } from '../../services/group-expense.service';
 export class GroupSetupComponent {
   membersForm!: FormGroup;
   groupMembers: string[] = [];
-   activeStep: number = 1;
 
-  items = [
-    {
-      label: 'Group',
-      routerLink: '/group',
-    },
-    {
-      label: 'Expenses',
-      routerLink: '/summary',
-    },
-    {
-      label: 'Summary',
-      routerLink: '/expenses',
-    },
-  ];
+
+
 
   constructor(private groupExpenseService: GroupExpenseService) {}
 

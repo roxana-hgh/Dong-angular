@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DrawerModule } from 'primeng/drawer';
 import { SelectButton } from 'primeng/selectbutton';
-import { StepperModule } from 'primeng/stepper';
 import { RadioButtonModule } from 'primeng/radiobutton';
 
 import { RouterModule } from '@angular/router';
@@ -28,8 +27,8 @@ import { providePrimeNG } from 'primeng/config';
 import { CheckboxModule } from 'primeng/checkbox';
 import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
-import { StepsModule } from 'primeng/steps';
 import MyPreset from '../mypreset';
+import { AddEditGroupComponent } from './components/add-edit-group/add-edit-group.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +40,7 @@ import MyPreset from '../mypreset';
     BaseComponent,
     HeaderComponent,
     TranslatePipe,
+    AddEditGroupComponent,
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -50,11 +50,9 @@ import MyPreset from '../mypreset';
     FormsModule,
     RouterModule,
     DrawerModule,
-    StepperModule,
     RadioButtonModule,
     CheckboxModule,
     ButtonModule,
-    StepsModule,
     SelectButton,
     BadgeModule
   ],

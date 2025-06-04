@@ -5,11 +5,13 @@ import { GroupSetupComponent } from './components/group-setup/group-setup.compon
 import { ExpenseEntryComponent } from './components/expense-entry/expense-entry.component';
 import { ExpenseSummaryComponent } from './components/expense-summary/expense-summary.component';
 import { BaseComponent } from './components/base/base.component';
+import { AddEditGroupComponent } from './components/add-edit-group/add-edit-group.component';
 
 const routes: Routes = [
   { path: '', component: BaseComponent, children: [
     { path: '', redirectTo: '/start', pathMatch: 'full' },
     { path: 'start', component: HomeComponent },
+    {path: 'new-group', component: AddEditGroupComponent},
     { path: 'group', component: GroupSetupComponent },
     { path: 'expenses', component: ExpenseEntryComponent },
     { path: 'summary', component: ExpenseSummaryComponent },
