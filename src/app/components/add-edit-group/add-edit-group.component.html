@@ -1,4 +1,4 @@
-<div class="py-5  min-h-screen">
+<div class="py-3  min-h-screen">
     <div class="flex justify-center  py-3 w-full  h-full">
         <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full ">
             <h1 class="text-lg lg:text-xl mb-1 md:mb-3 mt-2 font-bold"> {{ 'creat_group' | translate | async }}</h1>
@@ -25,7 +25,7 @@
                             class="bg-neutral-200 text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
                             {{ 'cancel' | translate | async }}
                         </button>
-                        <button [routerLink]="['/group']"
+                        <button [routerLink]="['/group-member']"
                             class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center">
                             {{ 'continue' | translate | async }}
                         </button>

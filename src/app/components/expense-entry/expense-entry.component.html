@@ -1,4 +1,4 @@
-<div class="py-5  min-h-screen">
+<div class="py-3  min-h-screen">
     <div class="flex justify-center  py-3 w-full  h-full">
         <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full ">
            <h1 class="text-lg lg:text-xl mb-1 md:mb-3 mt-2 font-bold"> {{ 'add_expense' | translate | async }}</h1>
@@ -86,7 +86,7 @@
                         </button>
                         <button  [disabled]="expenseForm.invalid" type="submit"
                             class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center">
-                            {{ 'continue' | translate | async }}
+                            {{ 'add_expense' | translate | async }}
                         </button>
                         <!-- <button (click)="displaylist = true"
           class="rounded-full w-full flex items-center gap-1 justify-center bg-primary-50  py-2 px-5 border border-primary-400 text-center text-sm text-primary-700 transition-all disabled:pointer-events-none disabled:opacity-70">
@@ -100,7 +100,7 @@
     </div>
 </div>
 
-<p-drawer [(visible)]="displaylist" position="right" header="{{ 'expenses_list' | translate | async }}">
+<!-- <p-drawer [(visible)]="displaylist" position="right" header="{{ 'expenses_list' | translate | async }}">
  
    <div *ngIf="expenses.length > 0" class="relative flex flex-col">
     <nav class="flex  flex-col gap-1 p-1">
@@ -125,5 +125,5 @@
     </nav>
    </div>
 
-</p-drawer>
+</p-drawer> -->
 

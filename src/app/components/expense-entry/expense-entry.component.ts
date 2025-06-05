@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { GroupMember } from '../../interfaces/GroupMember';
 import { Expense } from '../../interfaces/Expense';
 import { GroupExpenseService } from '../../services/group-expense.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,24 +16,10 @@ export class ExpenseEntryComponent implements OnInit {
   expenseForm: FormGroup;
   groupMembers: GroupMember[] = [];
   expenses: Expense[] = [];
-   activeStep: number = 2;
-displaylist = false;
-  items = [
-    {
-      label: 'Group',
-      routerLink: '/group',
-    },
-    {
-      label: 'Expenses',
-      routerLink: '/summary',
-    },
-    {
-      label: 'Summary',
-      routerLink: '/expenses',
-    },
-  ];
 
-  constructor(private fb: FormBuilder, private groupExpenseService: GroupExpenseService) {
+
+
+  constructor(private fb: FormBuilder, private groupExpenseService: GroupExpenseService, private router: Router) {
     this.expenseForm = this.fb.group({
       expenseName: ['', Validators.required],
       amount: [null, [Validators.required, Validators.min(1)]],
@@ -56,14 +43,19 @@ displaylist = false;
 
   onCheckboxChange(memberName: string, event: any): void {
     const splitBetweenArray = this.expenseForm.get('splitBetween') as FormArray;
-    if (event.checked) {
-      splitBetweenArray.push(this.fb.control(memberName));
+    if (event.target.checked) {
+      // Add member if checked and not already present
+      if (!splitBetweenArray.controls.some(ctrl => ctrl.value === memberName)) {
+        splitBetweenArray.push(this.fb.control(memberName));
+      }
     } else {
-      const index = splitBetweenArray.controls.findIndex(x => x.value === memberName);
+      // Remove member if unchecked
+      const index = splitBetweenArray.controls.findIndex(ctrl => ctrl.value === memberName);
       if (index !== -1) {
         splitBetweenArray.removeAt(index);
       }
     }
+  
   }
 
   addExpense(): void {
@@ -87,6 +79,7 @@ displaylist = false;
     if (this.groupMembers.length) {
       this.expenseForm.patchValue({ paidBy: this.groupMembers[0].name });
     }
+    this.router.navigate(['/group-dashboard']);
   }
 
   removeExpense(index: number): void {

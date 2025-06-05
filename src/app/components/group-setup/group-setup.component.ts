@@ -12,9 +12,6 @@ export class GroupSetupComponent {
   membersForm!: FormGroup;
   groupMembers: string[] = [];
 
-
-
-
   constructor(private groupExpenseService: GroupExpenseService) {}
 
   ngOnInit() {

@@ -29,6 +29,7 @@ import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
 import MyPreset from '../mypreset';
 import { AddEditGroupComponent } from './components/add-edit-group/add-edit-group.component';
+import { GroupDashboardComponent } from './components/group-dashboard/group-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AddEditGroupComponent } from './components/add-edit-group/add-edit-grou
     HeaderComponent,
     TranslatePipe,
     AddEditGroupComponent,
+    GroupDashboardComponent,
   ],
   bootstrap: [AppComponent],
   imports: [
