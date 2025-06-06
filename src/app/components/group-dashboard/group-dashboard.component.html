@@ -64,13 +64,13 @@
                                 <div class="">
                                     <p class="m-0 font-bold text-base">{{ expense.expenseName }}</p>
 
-                                    <span class="text-muted text-xs block">{{'split_between' | translate | async }} {{
+                                    <span class="text-muted text-xs hidden md:block">{{'split_between' | translate | async }} {{
                                         expense.splitBetween.join(' , ') }}</span>
                                 </div>
                                 <div class="flex justify-self-end ms-auto">
                                     <div class="text-end ">
                                         <p class="m-0 font-bold  text-base">$ {{ expense.amount }}</p>
-                                        <span class="text-muted text-xs">{{'paid_by' | translate | async }} {{
+                                        <span class="text-muted text-xs hidden md:block">{{'paid_by' | translate | async }} {{
                                             expense.paidBy
                                             }}</span>
                                     </div>
