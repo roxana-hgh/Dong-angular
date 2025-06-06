@@ -56,7 +56,16 @@
   "creat_group": "Create a new group",
   "member_name": "Member Name",
   "member_email": "Member Email",
-  "members": "Members"
+  "members": "Members",
+  "no_expenses_added": "No expenses added yet",
+  "no_expenses_added_description": "Add your first expense to get started",
+  "settle_up": "Settle up",
+  "settle_up_description": "Here is the Simplest Way to Settle Up with Friends",
+  "remove": "Remove",
+  "total_amount": "Total Amount",
+  "needs_pay": "needs to pay",
+  "will_recice": "will receive"
+
  
  
 }

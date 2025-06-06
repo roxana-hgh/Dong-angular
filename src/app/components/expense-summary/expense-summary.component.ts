@@ -32,6 +32,7 @@ export class ExpenseSummaryComponent implements OnInit {
   expenses: Expense[] = [];
   memberSummaries: MemberSummary[] = [];
   settlements: Settlement[] = [];
+ 
   
   // Track expanded/collapsed state for each member's details
   expandedMembers: { [name: string]: boolean } = {};

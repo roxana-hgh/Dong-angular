@@ -56,5 +56,13 @@
     "creat_group": "ساخت گروه جدید",
     "member_name": "نام عضو",
     "member_email": "ایمیل عضو",
-    "members": "اعضا"
+    "members": "اعضا",
+    "no_expenses_added": "هنوز هزینه‌ای اضافه نشده است.",
+    "expense_description": "برای شروع اولین هزینه را اضافه کنید",
+    "settle_up": "تسویه حساب ",
+    "settle_up_description": "این بخش به شما امکان می‌دهد تا تسویه حساب‌های مالی را بین اعضای گروه انجام دهید.",
+    "remove": "حذف",
+    "total_amount": "مجموع مبلغ",
+    "needs_pay": "باید پرداخت کند",
+    "will_recice": "دریافت خواهد کرد"
   }

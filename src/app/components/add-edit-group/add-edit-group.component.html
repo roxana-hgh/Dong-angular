@@ -9,7 +9,7 @@
                             {{ 'group_name' | translate | async }}
                         </label>
                         <input
-                            class="w-full  text-sm border border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
+                            class="w-full  text-sm border  border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
                             placeholder="{{ 'group_name_placeholder' | translate | async }}" />
                     </div>
                     <div class="py-2 my-2">
@@ -22,7 +22,7 @@
                     <div class="flex justify-end gap-2 my-3 py-3">
 
                         <button type="button" [routerLink]="['/']"
-                            class="bg-neutral-200 text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
+                            class="bg-emphasis text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
                             {{ 'cancel' | translate | async }}
                         </button>
                         <button [routerLink]="['/group-member']"

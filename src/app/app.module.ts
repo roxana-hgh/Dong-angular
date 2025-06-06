@@ -15,6 +15,7 @@ import { DrawerModule } from 'primeng/drawer';
 import { SelectButton } from 'primeng/selectbutton';
 import { RadioButtonModule } from 'primeng/radiobutton';
 
+import { PopoverModule } from 'primeng/popover';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from './shared/pipes/Translate.pipe';
 import { TranslationService } from './services/translation.service';
@@ -25,7 +26,7 @@ import {
 
 import { providePrimeNG } from 'primeng/config';
 import { CheckboxModule } from 'primeng/checkbox';
-import { BadgeModule } from 'primeng/badge';
+
 import { ButtonModule } from 'primeng/button';
 import MyPreset from '../mypreset';
 import { AddEditGroupComponent } from './components/add-edit-group/add-edit-group.component';
@@ -43,6 +44,7 @@ import { GroupDashboardComponent } from './components/group-dashboard/group-dash
     TranslatePipe,
     AddEditGroupComponent,
     GroupDashboardComponent,
+    
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -56,7 +58,7 @@ import { GroupDashboardComponent } from './components/group-dashboard/group-dash
     CheckboxModule,
     ButtonModule,
     SelectButton,
-    BadgeModule
+    PopoverModule  
   ],
   providers: [
     TranslationService,

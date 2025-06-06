@@ -82,8 +82,5 @@ export class ExpenseEntryComponent implements OnInit {
     this.router.navigate(['/group-dashboard']);
   }
 
-  removeExpense(index: number): void {
-    this.groupExpenseService.removeExpense(index);
-    this.expenses = this.groupExpenseService.getExpenses();
-  }
+
 }

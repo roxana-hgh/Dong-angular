@@ -28,7 +28,7 @@
           </button>
         </div>
       </form>
-      <div class=" mt-4 py-4 px-2">
+      <div class=" mt-4 py-2 px-2">
         <div class="relative min-h-[230px] flex flex-col w-full  m-auto">
           <h6 class="text-base font-bold my-2">{{'members' | translate | async }} <span
               class="">({{groupMembers.length}})</span></h6>
@@ -64,7 +64,7 @@
     <div class="flex justify-between gap-2 my-3 py-3">
 
       <button type="button" [routerLink]="['/new-group']"
-        class="bg-neutral-200 text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
+        class="bg-emphasis rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
         {{ 'back' | translate | async }}
       </button>
       <button [routerLink]="['/group-dashboard']"
