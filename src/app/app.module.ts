@@ -67,7 +67,7 @@ import { GroupDashboardComponent } from './components/group-dashboard/group-dash
       theme: {
         preset: MyPreset,
          options: {
-            darkModeSelector: '.my-app-dark',
+            darkModeSelector: '.app-dark',
             cssLayer: {
                 name: 'primeng',
                 order: 'tailwind-base, primeng, tailwind-utilities'

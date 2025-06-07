@@ -7,7 +7,7 @@
         <h1 class="text-lg lg:text-xl  font-bold"> Summer Vacation </h1>
       </div>
 
-      <h5 class="text-lg mt-3 mb-1 font-semibold p-1">{{ "who_involved" | translate | async }}</h5>
+      <h5 class="text-base mt-4 mb-1 font-semibold p-1">{{ "who_involved" | translate | async }}</h5>
 
 
       <form class="" [formGroup]="membersForm" (ngSubmit)="addmember()">
@@ -35,7 +35,7 @@
           <nav class="flex flex-col gap-2 overflow-y-auto" *ngIf="groupMembers.length > 0">
             <div role="button" *ngFor="let member of groupMembers; let i = index"
               class="flex w-full items-center px-0 py-3 transition-all border-b border-neutral-200 member-item">
-              <div class="mr-4 grid place-items-center">
+              <div class="mr-3 grid place-items-center">
                 <span class="avatar bg-primary text-primary-contrast p-2 relative rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                     <circle cx="12" cy="6" r="4" fill="currentColor" />
@@ -45,7 +45,7 @@
                 </span>
               </div>
               <div>
-                <h6 class="font-base font-semibold">
+                <h6 class="font-sm font-semibold">
                   {{ member }}
                 </h6>
               </div>

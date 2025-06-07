@@ -24,6 +24,7 @@ export class TranslationService {
     this.language.next(lang);
     this.loadTranslations(lang).subscribe();
     document.documentElement.setAttribute("lang", lang);
+    document.documentElement.setAttribute("dir", lang === 'fa' ? 'rtl' : 'ltr');
    
   }
 

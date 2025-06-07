@@ -37,8 +37,8 @@ ngOnInit(): void {
     const element = document.querySelector('html');
     
     this.darkMode
-      ? element?.classList.add('my-app-dark')
-      : element?.classList.remove('my-app-dark');
+      ? element?.classList.add('app-dark')
+      : element?.classList.remove('app-dark');
    
   }
 
