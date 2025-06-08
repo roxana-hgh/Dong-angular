@@ -50,7 +50,7 @@
     "group_name":  "نام گروه",
     "group_name_placeholder": "مانند سفر تابستانی",
     "group_name_required": "نام گروه الزامی است",
-    "group_description": "توضیحات ",
+    "description": "توضیحات ",
     "optional": "اختیاری",
     "cancel": "لغو",
     "creat_group": "ساخت گروه جدید",
