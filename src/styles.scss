@@ -40,6 +40,12 @@ body {
   }
 }
 
+html[dir="rtl"]  {
+  .arrow-icon {
+    transform: rotateY(180deg);
+  }
+}
+
 // PrimeNG Component Styles
 .p-checkbox {
   width: 1.25rem !important;

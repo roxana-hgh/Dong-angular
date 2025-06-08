@@ -16,10 +16,10 @@
                             class="text-xs decoration-0 border-b border-transparent text-primary hover:border-b-current ">
                             {{'add_member' | translate | async }}</a>
                     </div>
-                    <nav class="flex flex-col gap-2 overflow-y-auto mt-2" *ngIf="groupMembers.length > 0">
+                    <nav class="flex flex-col  overflow-y-auto mt-2" *ngIf="groupMembers.length > 0">
                         <div role="button" *ngFor="let member of groupMembers; let i = index"
                             class="flex w-full items-center px-0 py-2 transition-all border-b border-neutral-200 member-item">
-                            <div class="mr-3 grid place-items-center">
+                            <div class="me-3 grid place-items-center">
                                 <span class="avatar bg-primary text-primary-contrast p-2 relative rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
                                         <circle cx="12" cy="6" r="4" fill="currentColor" />
@@ -74,7 +74,7 @@
                                             expense.paidBy
                                             }}</span>
                                     </div>
-                                    <button type="button" class="text-muted-color text-sm p-0 ml-2"
+                                    <button type="button" class="text-muted-color text-sm p-0 ms-2"
                                         (click)="toggle($event, item)">
                                         <i class="pi pi-ellipsis-v"></i>
 

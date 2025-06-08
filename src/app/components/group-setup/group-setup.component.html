@@ -2,7 +2,7 @@
   <div class=" justify-center  py-3 w-full  h-full">
     <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full ">
       <div class="flex items-center gap-2 mb-2 md:mb-5 mt-2">
-        <span class="p-2 w-10 h-10 rounded-full bg-primary-100 text-primary flex justify-center items-center"><i
+        <span class="p-2 w-10 h-10 rounded-full bg-primary-100  text-primary flex justify-center items-center"><i
             class="pi pi-users text-base"></i></span>
         <h1 class="text-lg lg:text-xl  font-bold"> Summer Vacation </h1>
       </div>
@@ -14,10 +14,10 @@
 
         <div class="relative w-100 flex flex-col md:flex-row gap-3 md:gap-1 align-items-stretch">
           <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
-            class="bg-transparent grow text-sm border border-slate-300  rounded-lg pl-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
+            class="bg-transparent grow text-sm border border-slate-300  rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
             placeholder="{{ 'member_name' | translate | async }}" formControlName="memberName" />
           <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
-            class="bg-transparent grow text-sm border border-slate-300  rounded-lg pl-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
+            class="bg-transparent grow text-sm border border-slate-300  rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
             placeholder="{{ 'member_email' | translate | async }} ({{'optional' | translate | async}})"
             formControlName="memberName" />
           <button [disabled]="membersForm.invalid"
@@ -32,10 +32,10 @@
         <div class="relative min-h-[230px] flex flex-col w-full  m-auto">
           <h6 class="text-base font-bold my-2">{{'members' | translate | async }} <span
               class="">({{groupMembers.length}})</span></h6>
-          <nav class="flex flex-col gap-2 overflow-y-auto" *ngIf="groupMembers.length > 0">
+          <nav class="flex flex-col overflow-y-auto" *ngIf="groupMembers.length > 0">
             <div role="button" *ngFor="let member of groupMembers; let i = index"
-              class="flex w-full items-center px-0 py-3 transition-all border-b border-neutral-200 member-item">
-              <div class="mr-3 grid place-items-center">
+              class="flex w-full items-center px-0 py-3 transition-all border-b  member-item">
+              <div class="me-3 grid place-items-center">
                 <span class="avatar bg-primary text-primary-contrast p-2 relative rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                     <circle cx="12" cy="6" r="4" fill="currentColor" />
@@ -45,12 +45,12 @@
                 </span>
               </div>
               <div>
-                <h6 class="font-sm font-semibold">
+                <h6 class="text-sm font-semibold">
                   {{ member }}
                 </h6>
               </div>
               <span (click)="removeMember(member)"
-                class="block text-sm text-neutral-400 hover:text-red-600 justify-self-end ml-auto px-2 remove-member-btn">
+                class="block text-sm text-neutral-400 hover:text-red-600 justify-self-end ms-auto px-2 remove-member-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                   <path fill="currentColor"
                     d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z" />

@@ -27,7 +27,7 @@
         <div class="px-1 py-3 md:p-3  border-b  settlement-item  flex items-center justify-between gap-3 last:border-b-0"
           *ngFor="let settlement of settlements">
           <div class="flex items-center">
-            <div class="mr-2 grid place-items-center">
+            <div class="me-2 grid place-items-center">
               <span class="avatar bg-red-100 text-red-400 p-2 md:p-2.5 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <circle cx="12" cy="6" r="4" fill="currentColor" />
@@ -44,10 +44,12 @@
 
           <div class="flex items-center">
             <p class="font-bold text-base md:text-xl">$ {{ settlement.amount | number : "1.2-2" }}</p>
-            <svg class="text-muted-color" xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 16 16">
+            <div class="arrow-icon">
+              <svg class="text-muted-color" xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 16 16">
               <path fill="currentColor" fill-rule="evenodd"
                 d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
             </svg>
+            </div>
           </div>
 
           <div class="flex items-center">
@@ -55,7 +57,7 @@
               <span class="font-medium block text-sm md:text-base">{{ settlement.to }}</span>
               <span class="text-sm text-muted-color hidden md:block">{{ "will_recice" | translate | async }}</span>
             </div>
-            <div class="ml-2 grid place-items-center">
+            <div class="ms-2 grid place-items-center">
               <span class="avatar bg-green-100 text-green-400 p-2 md:p-2.5 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <circle cx="12" cy="6" r="4" fill="currentColor" />
@@ -84,7 +86,7 @@
               class=" w-full rounded-md p-2 md-p-3 transition-all">
               <div class="flex justify-between w-full">
                 <div class="flex gap-1 items-center">
-                  <div class="mr-2 grid place-items-center">
+                  <div class="me-2 grid place-items-center">
                     <span class="avatar bg-primary-100 text-primary p-2 5 relative rounded-full">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                         <circle cx="12" cy="6" r="4" fill="currentColor" />
