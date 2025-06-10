@@ -6,6 +6,7 @@ module.exports = {
   content: [
     "./src/**/*.{html,ts,scss}",
   ],
+  darkMode: ['class', '.app-dark'], // Use the same selector as PrimeNG
   theme: {
     extend: {},
   },

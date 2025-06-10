@@ -61,10 +61,10 @@ const MyPreset = definePreset(Aura, {
             },
             dark: {
                 primary: {
-                    color: '{zinc.50}',
-                    inverseColor: '{zinc.950}',
-                    hoverColor: '{zinc.100}',
-                    activeColor: '{zinc.200}'
+                    color: '{amber.100}',
+                    inverseColor: '{amber.50}',
+                    hoverColor: '{amber.50}',
+                    activeColor: '{amber.300}'
                 },
                 highlight: {
                     background: 'rgba(250, 250, 250, .16)',

@@ -33,14 +33,15 @@ ngOnInit(): void {
     this.drawerRef.close(e);
   }
 
-  toggleDarkMode() {
-    const element = document.querySelector('html');
-    
-    this.darkMode
-      ? element?.classList.add('app-dark')
-      : element?.classList.remove('app-dark');
-   
+toggleDarkMode() {
+  const element = document.querySelector('html');
+  
+  if (this.darkMode) {
+    element?.classList.add('app-dark', 'dark');
+  } else {
+    element?.classList.remove('app-dark', 'dark');
   }
+}
 
   set_lang() {
     const lang = this.Langvalue;

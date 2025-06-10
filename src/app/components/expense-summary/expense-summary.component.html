@@ -4,7 +4,7 @@
 
       <div class="flex justify-between items-end">
         <div class="flex items-center gap-2 mb-2 md:mb-5 mt-2">
-          <span class="p-2 w-10 h-10 rounded-full bg-primary-100 text-primary flex justify-center items-center"><i
+          <span class="p-2 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-contrast text-primary flex justify-center items-center"><i
               class="pi pi-users text-base"></i></span>
           <h1 class="text-lg lg:text-xl  font-bold"> Summer Vacation </h1>
         </div>
@@ -20,7 +20,7 @@
       <p class="text-muted-color text-sm">{{"settle_up_description" | translate | async}}</p>
 
       <div class="mt-3 mb-4 lg:mt-5 border rounded-lg">
-        <div *ngIf="settlements.length === 0" class=" p-3 bg-slate-50 my-3 rounded text-center">
+        <div *ngIf="settlements.length === 0" class=" p-3  my-3 rounded text-center">
           {{ "everyone_settled" | translate | async }}
         </div>
 
@@ -28,7 +28,7 @@
           *ngFor="let settlement of settlements">
           <div class="flex items-center">
             <div class="me-2 grid place-items-center">
-              <span class="avatar bg-red-100 text-red-400 p-2 md:p-2.5 relative rounded-full">
+              <span class="avatar bg-red-100 dark:bg-red-400/10 text-red-400 dark:text-400 p-2 md:p-2.5 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <circle cx="12" cy="6" r="4" fill="currentColor" />
                   <path fill="currentColor"
@@ -58,7 +58,7 @@
               <span class="text-sm text-muted-color hidden md:block">{{ "will_recice" | translate | async }}</span>
             </div>
             <div class="ms-2 grid place-items-center">
-              <span class="avatar bg-green-100 text-green-400 p-2 md:p-2.5 relative rounded-full">
+              <span class="avatar bg-green-100 dark:bg-green-300/10 text-green-400 p-2 md:p-2.5 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <circle cx="12" cy="6" r="4" fill="currentColor" />
                   <path fill="currentColor"
@@ -87,7 +87,7 @@
               <div class="flex justify-between w-full">
                 <div class="flex gap-1 items-center">
                   <div class="me-2 grid place-items-center">
-                    <span class="avatar bg-primary-100 text-primary p-2 5 relative rounded-full">
+                    <span class="avatar bg-primary-100 dark:bg-primary-contrast text-primary p-2 5 relative rounded-full">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                         <circle cx="12" cy="6" r="4" fill="currentColor" />
                         <path fill="currentColor"
