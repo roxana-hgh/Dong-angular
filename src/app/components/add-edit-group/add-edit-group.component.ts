@@ -10,10 +10,8 @@ import { GroupExpenseService } from '../../services/group-expense.service';
   styleUrl: './add-edit-group.component.scss'
 })
 export class AddEditGroupComponent implements OnInit {
-  groupForm: FormGroup = new FormGroup({
-      groupName: new FormControl(null, Validators.required),
-      groupDescription: new FormControl(null)
-    });
+  groupForm!: FormGroup ;
+  groupData!: { name: string; description?: string };
   
   constructor(
     private groupExpenseService: GroupExpenseService,
@@ -24,9 +22,11 @@ export class AddEditGroupComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.groupData = this.groupExpenseService.getGroupDetails();
     this.groupForm = new FormGroup({
-      groupName: new FormControl(null, Validators.required),
-      groupDescription: new FormControl(null)
+      groupName: new FormControl(this.groupData.name ? this.groupData.name : null, Validators.required),
+      groupDescription: new FormControl(this.groupData.description ? this.groupData.description : null)
     });
   }
 
