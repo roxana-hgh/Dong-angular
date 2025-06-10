@@ -38,16 +38,16 @@ export class GroupExpenseService {
       description: this.groupData.groupDescription
     };
   }
-  
+
 
   // =========================
   // Group Member Methods
   // =========================
 
-  addMember(name: string): void {
+  addMember(name: string, email:string = ''): void {
     // Avoid duplicates
-    if (!this.groupData.groupMembers.find(member => member.name === name)) {
-      this.groupData.groupMembers.push({ name });
+    if (!this.groupData.groupMembers.find(member => member.name === name || member.email === email)) {
+      this.groupData.groupMembers.push({ name : name , email: email });
       this.saveData();
     }
   }

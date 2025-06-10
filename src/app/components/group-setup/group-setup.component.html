@@ -16,10 +16,10 @@
           <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
             class="bg-transparent grow text-sm border border-slate-300  rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
             placeholder="{{ 'member_name' | translate | async }}" formControlName="memberName" />
-          <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
+          <input type="text" ngClass="{'border-red-500': memberEmail.invalid && memberEmail.touched}"
             class="bg-transparent grow text-sm border border-slate-300  rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
             placeholder="{{ 'member_email' | translate | async }} ({{'optional' | translate | async}})"
-            formControlName="memberName" />
+            formControlName="memberEmail" />
           <button [disabled]="membersForm.invalid"
             class="h-full rounded-lg bg-primary text-primary-contrast p-3 flex justify-center items-center gap-2 text-center text-base transition-all active:shadow-none disabled:pointer-events-none disabled:opacity-70 disabled:shadow-none cursor-pointer"
             type="submit">
@@ -46,10 +46,13 @@
               </div>
               <div>
                 <h6 class="text-sm font-semibold">
-                  {{ member }}
+                  {{ member.name }}
                 </h6>
+                <span class="block text-muted-color text-xs">
+                  {{ member.email ? member.email : '' }}
+                </span>
               </div>
-              <span (click)="removeMember(member)"
+              <span (click)="removeMember(member.name)"
                 class="block text-sm text-neutral-400 hover:text-red-600 justify-self-end ms-auto px-2 remove-member-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                   <path fill="currentColor"
