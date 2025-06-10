@@ -11,6 +11,7 @@ import { GroupExpenseService } from '../../services/group-expense.service';
 export class GroupSetupComponent {
   membersForm!: FormGroup;
   groupMembers: string[] = [];
+  groupName: string = '';
 
   constructor(private groupExpenseService: GroupExpenseService) {}
 
@@ -19,11 +20,14 @@ export class GroupSetupComponent {
       memberName: new FormControl(null, Validators.required),
     });
 
+    this.groupName = this.groupExpenseService.getGroupDetails().name;
+
+
     this.groupMembers = this.groupExpenseService
       .getMembers()
       .map((member) => member.name);
-    console.log(this.groupMembers);
-    console.log(this.groupMembers.length);
+    // console.log(this.groupMembers);
+    // console.log(this.groupMembers.length);
   }
 
   addmember() {

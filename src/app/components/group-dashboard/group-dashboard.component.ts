@@ -3,44 +3,43 @@ import { GroupExpenseService } from '../../services/group-expense.service';
 import { Expense } from '../../interfaces/Expense';
 import { Popover } from 'primeng/popover';
 
-
-
 @Component({
   selector: 'app-group-dashboard',
   standalone: false,
   templateUrl: './group-dashboard.component.html',
-  styleUrl: './group-dashboard.component.scss'
+  styleUrl: './group-dashboard.component.scss',
 })
 export class GroupDashboardComponent implements OnInit {
-groupMembers: string[] = [];
+  groupMembers: string[] = [];
   expenses: Expense[] = [];
-constructor(private groupExpenseService: GroupExpenseService) {}
- @ViewChild('op') op!: Popover;
- selectedExpenseIndex: number  | null = null;
- 
+  groupName: string = '';
+  constructor(private groupExpenseService: GroupExpenseService) {}
+  @ViewChild('op') op!: Popover;
+  selectedExpenseIndex: number | null = null;
+
   ngOnInit() {
     this.groupMembers = this.groupExpenseService
       .getMembers()
       .map((member) => member.name);
 
-      this.expenses = this.groupExpenseService.getExpenses();
+    this.groupName = this.groupExpenseService.getGroupDetails().name;
+
+    this.expenses = this.groupExpenseService.getExpenses();
   }
 
-   toggle(event:any, item: number): void {
-     
-     
-       if (this.selectedExpenseIndex) {
-            this.op.hide();
-            this.selectedExpenseIndex = null;
-        } else {
-            this.selectedExpenseIndex = item;
-            this.op.show(event);
+  toggle(event: any, item: number): void {
+    if (this.selectedExpenseIndex) {
+      this.op.hide();
+      this.selectedExpenseIndex = null;
+    } else {
+      this.selectedExpenseIndex = item;
+      this.op.show(event);
 
-            if (this.op.container) {
-                this.op.align();
-            }
-        }
+      if (this.op.container) {
+        this.op.align();
+      }
     }
+  }
 
   removeExpense(): void {
     if (this.selectedExpenseIndex === null) {

@@ -32,6 +32,7 @@ export class ExpenseSummaryComponent implements OnInit {
   expenses: Expense[] = [];
   memberSummaries: MemberSummary[] = [];
   settlements: Settlement[] = [];
+  groupName: string = '';
  
   
   // Track expanded/collapsed state for each member's details
@@ -46,6 +47,7 @@ export class ExpenseSummaryComponent implements OnInit {
   loadData(): void {
     this.members = this.groupExpenseService.getMembers();
     this.expenses = this.groupExpenseService.getExpenses();
+    this.groupName = this.groupExpenseService.getGroupDetails().name;
     this.calculateSummary();
     this.calculateSettlements();
     

@@ -4,29 +4,29 @@
             <h1 class="text-lg lg:text-xl mb-1 md:mb-2 mt-2 font-bold"> {{ 'creat_group' | translate | async }}</h1>
             <p class="text-muted-color text-sm">{{ 'create_group_desc' | translate | async }}</p>
             <div class="py-2">
-                <form action="">
+                <form [formGroup]="groupForm" (ngSubmit)="saveGroupForm()" action="">
                     <div class="py-2 my-2">
                         <label class="block mb-3 font-bold text-sm px-1 ">
                             {{ 'group_name' | translate | async }}
                         </label>
                         <input
                             class="w-full  text-sm border  border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
+                            ngClass="{'border-red-500': groupName.invalid && groupName.touched}"
+                            formControlName="groupName" type="text"
                             placeholder="{{ 'group_name_placeholder' | translate | async }}" />
                     </div>
                     <div class="py-2 my-2">
                         <label class="block mb-3 font-bold text-sm px-1 ">
                             {{ 'description' | translate | async }} ({{ 'optional' | translate | async }})
                         </label>
-                        <textarea rows="4"
+                        <textarea rows="4" formControlName="groupDescription" 
                             class="w-full  text-sm border border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"></textarea>
                     </div>
-                    <div class="flex justify-end gap-2 my-3 py-3">
-
-                        <button type="button" [routerLink]="['/']"
+                    <div class="flex justify-end gap-2 my-3 py-3">                        <button type="button" [routerLink]="['/']"
                             class="bg-emphasis text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
                             {{ 'cancel' | translate | async }}
                         </button>
-                        <button [routerLink]="['/group-member']"
+                        <button type="submit" [disabled]="!groupForm.valid"
                             class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center">
                             {{ 'continue' | translate | async }}
                         </button>

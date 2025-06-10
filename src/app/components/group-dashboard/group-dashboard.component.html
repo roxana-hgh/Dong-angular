@@ -3,7 +3,7 @@
         <div class="grid grid-cols-3 gap-3 items-start">
             <div class="border rounded-lg col-span-3 md:col-span-1 order-last md:order-first">
                 <div class="p-3 lg:px-4 lg:py-5 bg-primary rounded-t-lg">
-                    <h5 class="font-bold text-xl text-primary-contrast">Summer Vacation</h5>
+                    <h5 class="font-bold text-xl text-primary-contrast">{{groupName}}</h5>
                     <span class="text-sm text-primary-contrast">{{groupMembers.length}} {{'members' | translate | async
                         }}</span>
 
@@ -12,7 +12,7 @@
                     <div class="flex items-center justify-between  mb-2">
                         <h6 class="text-sm font-semibold">{{'members' | translate | async }}<span
                                 class="">({{groupMembers.length}})</span></h6>
-                        <a href=""
+                        <a href="/group-member"
                             class="text-xs decoration-0 border-b border-transparent text-primary hover:border-b-current ">
                             {{'add_member' | translate | async }}</a>
                     </div>

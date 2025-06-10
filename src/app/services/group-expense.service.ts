@@ -7,6 +7,8 @@ import { Settlement } from '../interfaces/Settlement';
 export interface GroupData {
   groupMembers: GroupMember[];
   expenses: Expense[];
+  groupName: string; 
+  groupDescription?: string; 
 }
 
 @Injectable({
@@ -15,6 +17,8 @@ export interface GroupData {
 export class GroupExpenseService {
   private storageKey = 'groupData';
   private groupData: GroupData = {
+    groupName: '',
+    groupDescription: '',
     groupMembers: [],
     expenses: []
   };
@@ -22,6 +26,19 @@ export class GroupExpenseService {
   constructor() {
     this.loadData();
   }
+
+  addGroupDetails(name: string, description?: string): void {
+    this.groupData.groupName = name;
+    this.groupData.groupDescription = description || '';
+    this.saveData();
+  }
+  getGroupDetails(): { name: string; description?: string } {
+    return {
+      name: this.groupData.groupName,
+      description: this.groupData.groupDescription
+    };
+  }
+  
 
   // =========================
   // Group Member Methods
@@ -261,6 +278,8 @@ export class GroupExpenseService {
         console.error('Error parsing group data from sessionStorage:', error);
         // Reset data in case of error
         this.groupData = {
+          groupName: '',
+          groupDescription: '',
           groupMembers: [],
           expenses: []
         };
@@ -272,6 +291,8 @@ export class GroupExpenseService {
   clearData(): void {
     sessionStorage.removeItem(this.storageKey);
     this.groupData = {
+      groupName: '',
+      groupDescription: '',
       groupMembers: [],
       expenses: []
     };
