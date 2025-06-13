@@ -46,7 +46,8 @@ export class GroupExpenseService {
 
   addMember(name: string, email:string = ''): void {
     // Avoid duplicates
-    if (!this.groupData.groupMembers.find(member => member.name === name || member.email === email)) {
+
+    if (!this.groupData.groupMembers.find(member => member.name === name || (email !== null  && member.email === email))) {
       this.groupData.groupMembers.push({ name : name , email: email });
       this.saveData();
     }
