@@ -34,7 +34,7 @@ const MyPreset = definePreset(Aura, {
         }
     },
     variables: {
-        // Custom overrides for Noir mode using blue surfaces
+    
         'surface-ground': '{surface.dark.0}',      // page background
         'surface-section': '{surface.dark.50}',    // layout sections
         'surface-card': '{surface.dark.100}',      // card background
@@ -64,13 +64,13 @@ const MyPreset = definePreset(Aura, {
                     color: '{amber.100}',
                     inverseColor: '{amber.50}',
                     hoverColor: '{amber.50}',
-                    activeColor: '{amber.300}'
+                    activeColor: '{amber.100}'
                 },
                 highlight: {
                     background: 'rgba(250, 250, 250, .16)',
                     focusBackground: 'rgba(250, 250, 250, .24)',
                     color: 'rgba(255,255,255,.87)',
-                    focusColor: 'rgba(255,255,255,.87)'
+                    focusColor: '{blue.500}'
                 }
             }
         }
