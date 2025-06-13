@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 
 import { Drawer } from 'primeng/drawer';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { Drawer } from 'primeng/drawer';
   standalone: false,
 })
 export class HeaderComponent implements OnInit {
-  constructor(private translationService: TranslationService) {}
+  constructor(private translationService: TranslationService, private themeService: ThemeService) {}
   showFiller = false;
   visible: boolean = false;
   darkMode: boolean = false;
@@ -28,19 +29,20 @@ ngOnInit(): void {
   this.translationService.getLanguage().subscribe((lang) => {
     this.Langvalue = lang;
   });
+
+  this.themeService.getTheme().subscribe((theme) => {
+    this.darkMode = theme == 'dark' ? true : false;
+  });
+
+
 }
   closeCallback(e: Event): void {
     this.drawerRef.close(e);
   }
 
 toggleDarkMode() {
-  const element = document.querySelector('html');
-  
-  if (this.darkMode) {
-    element?.classList.add('app-dark', 'dark');
-  } else {
-    element?.classList.remove('app-dark', 'dark');
-  }
+  let selctedTheme = this.darkMode ? 'dark' : 'light'
+  this.themeService.setTheme(selctedTheme)
 }
 
   set_lang() {
