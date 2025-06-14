@@ -14,9 +14,10 @@ export class GroupDashboardComponent implements OnInit {
   groupMembers: string[] = [];
   expenses: Expense[] = [];
   groupName: string = '';
+  totalExpensesAmout: number = 0
+  selectedExpenseId: number | null = null;
   constructor(private groupExpenseService: GroupExpenseService, private router: Router) {}
   @ViewChild('op') op!: Popover;
-  selectedExpenseId: number | null = null;
 
   ngOnInit() {
     this.groupMembers = this.groupExpenseService
@@ -26,6 +27,14 @@ export class GroupDashboardComponent implements OnInit {
     this.groupName = this.groupExpenseService.getGroupDetails().name;
 
     this.expenses = this.groupExpenseService.getExpenses();
+    this.calculateTotalAmount()
+  }
+
+  
+  calculateTotalAmount(){
+    this.expenses.forEach(item => {
+      this.totalExpensesAmout += item.amount
+    })
   }
 
   toggle(event: any, id: number): void {

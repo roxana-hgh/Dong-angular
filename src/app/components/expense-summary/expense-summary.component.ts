@@ -33,6 +33,7 @@ export class ExpenseSummaryComponent implements OnInit {
   memberSummaries: MemberSummary[] = [];
   settlements: Settlement[] = [];
   groupName: string = '';
+  totalExpensesAmout: number = 0
  
   
   // Track expanded/collapsed state for each member's details
@@ -50,11 +51,18 @@ export class ExpenseSummaryComponent implements OnInit {
     this.groupName = this.groupExpenseService.getGroupDetails().name;
     this.calculateSummary();
     this.calculateSettlements();
+    this.calculateTotalAmount()
     
     // Initialize expansion state for each member (all collapsed by default)
     this.members.forEach(member => {
       this.expandedMembers[member.name] = false;
     });
+  }
+
+  calculateTotalAmount(){
+    this.expenses.forEach(item => {
+      this.totalExpensesAmout += item.amount
+    })
   }
 
   calculateSummary(): void {
