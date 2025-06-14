@@ -1,7 +1,15 @@
 <div class="py-3  min-h-screen">
   <div class="flex justify-center  py-3 w-full  h-full">
-    <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full ">
-      <h1 class="text-lg lg:text-xl mb-1 md:mb-3 mt-2 font-bold"> {{ 'add_expense' | translate | async }}</h1>
+    <div *ngIf="(currentId && !expenses) || !expenseForm" class="loader p-4 my-5 m-2">
+  <app-loader></app-loader>
+</div>
+    <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full " *ngIf="expenseForm">
+      <h1 class="text-lg lg:text-xl mb-1 md:mb-3 mt-2 font-bold" *ngIf="!currentId; else editExpense"> {{ 'add_expense' | translate | async }}</h1>
+      
+    <ng-template #editExpense>
+      <h1 class="text-lg lg:text-xl mb-1 md:mb-3 mt-2 font-bold" >{{ "edit" | translate | async }} {{"expenses" | translate | async }}</h1>
+    </ng-template>
+      
       <form [formGroup]="expenseForm" (ngSubmit)="addExpense()" action="">
         <div class="">
           <div class="w-full ">
@@ -84,7 +92,12 @@
           </button>
           <button [disabled]="expenseForm.invalid" type="submit"
             class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center">
-            {{ 'add_expense' | translate | async }}
+           <span *ngIf="!currentId;else editExpenseBtn">
+             {{ 'add_expense' | translate | async }}
+           </span>
+           <ng-template #editExpenseBtn>
+             {{ "edit" | translate | async }}
+            </ng-template>
           </button>
 
         </div>

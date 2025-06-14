@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { GroupExpenseService } from '../../services/group-expense.service';
 import { Expense } from '../../interfaces/Expense';
 import { Popover } from 'primeng/popover';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-group-dashboard',
@@ -13,9 +14,9 @@ export class GroupDashboardComponent implements OnInit {
   groupMembers: string[] = [];
   expenses: Expense[] = [];
   groupName: string = '';
-  constructor(private groupExpenseService: GroupExpenseService) {}
+  constructor(private groupExpenseService: GroupExpenseService, private router: Router) {}
   @ViewChild('op') op!: Popover;
-  selectedExpenseIndex: number | null = null;
+  selectedExpenseId: number | null = null;
 
   ngOnInit() {
     this.groupMembers = this.groupExpenseService
@@ -27,12 +28,12 @@ export class GroupDashboardComponent implements OnInit {
     this.expenses = this.groupExpenseService.getExpenses();
   }
 
-  toggle(event: any, item: number): void {
-    if (this.selectedExpenseIndex) {
+  toggle(event: any, id: number): void {
+    if (this.selectedExpenseId) {
       this.op.hide();
-      this.selectedExpenseIndex = null;
+      this.selectedExpenseId = null;
     } else {
-      this.selectedExpenseIndex = item;
+      this.selectedExpenseId = id;
       this.op.show(event);
 
       if (this.op.container) {
@@ -41,12 +42,21 @@ export class GroupDashboardComponent implements OnInit {
     }
   }
 
-  removeExpense(): void {
-    if (this.selectedExpenseIndex === null) {
+  openEditExpense(){
+    if (this.selectedExpenseId === null) {
       return;
     }
-    const index = this.selectedExpenseIndex;
-    this.groupExpenseService.removeExpense(index);
+    const expenseId = this.selectedExpenseId;
+    this.router.navigate(['edit-expense', expenseId])
+    
+  }
+
+  removeExpense(): void {
+    if (this.selectedExpenseId === null) {
+      return;
+    }
+    const expenseId = this.selectedExpenseId;
+    this.groupExpenseService.removeExpense(expenseId);
     this.expenses = this.groupExpenseService.getExpenses();
   }
 }

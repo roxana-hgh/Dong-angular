@@ -27,6 +27,10 @@ export class GroupExpenseService {
     this.loadData();
   }
 
+  findObject(arr: any[], key: keyof any, value: any): any | undefined {
+  return arr.find(obj => obj[key] === value);
+}
+
   addGroupDetails(name: string, description?: string): void {
     this.groupData.groupName = name;
     this.groupData.groupDescription = description || '';
@@ -71,9 +75,10 @@ export class GroupExpenseService {
     this.saveData();
   }
 
-  removeExpense(index: number): void {
-    if (index >= 0 && index < this.groupData.expenses.length) {
-      this.groupData.expenses.splice(index, 1);
+  removeExpense(id: number): void {
+    const indexToRemove = this.groupData.expenses.findIndex(item => item.id === id);
+    if (indexToRemove >= 0 && indexToRemove < this.groupData.expenses.length) {
+        this.groupData.expenses.splice(indexToRemove, 1);
       this.saveData();
     }
   }
@@ -81,6 +86,25 @@ export class GroupExpenseService {
   getExpenses(): Expense[] {
     return this.groupData.expenses;
   }
+
+  getSingleExpense(id:number){
+    console.log(this.groupData.expenses.find(item => item.id === id));
+    
+    return this.groupData.expenses.find(item => item.id === id)
+  }
+
+  editExpense(id:number, data: Expense){
+     const indexToEdit = this.groupData.expenses.findIndex(item => item.id === id);
+
+      if (indexToEdit >= 0 && indexToEdit < this.groupData.expenses.length) {
+        this.groupData.expenses[indexToEdit] = data
+        this.saveData()
+
+      }
+
+  }
+
+
 
   // =========================
   // Calculation Methods

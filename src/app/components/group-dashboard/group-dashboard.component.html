@@ -75,7 +75,7 @@
                                             }}</span>
                                     </div>
                                     <button type="button" class="text-muted-color text-sm p-0 ms-2"
-                                        (click)="toggle($event, item)">
+                                        (click)="toggle($event, expense.id)">
                                         <i class="pi pi-ellipsis-v"></i>
 
                                     </button>
@@ -86,9 +86,14 @@
                                     <div>
 
                                         <ul class="list-none p-0 m-0 flex flex-col">
-                                            <li class=" cursor-pointer hover:text-red-600"
+                                             <li class=" cursor-pointer border-b py-2 hover:text-zinc-600"
+                                                (click)="openEditExpense(); op.hide()">
+                                                <span class="text-xs"><i class="pi pi-pen-to-square text-sm me-1"></i> {{'edit' |
+                                                    translate | async }}</span>
+                                            </li>
+                                            <li class=" cursor-pointer py-2 hover:text-red-600"
                                                 (click)="removeExpense(); op.hide()">
-                                                <span class="text-xs"><i class="pi pi-trash"></i> {{'remove' |
+                                                <span class="text-xs"><i class="pi pi-trash text-sm me-1"></i> {{'remove' |
                                                     translate | async }}</span>
                                             </li>
                                         </ul>

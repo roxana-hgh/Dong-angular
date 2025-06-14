@@ -16,6 +16,7 @@ const routes: Routes = [
     { path: 'group-member', component: GroupSetupComponent },
     { path: 'group-dashboard', component: GroupDashboardComponent },
     { path: 'expenses', component: ExpenseEntryComponent },
+    {path: 'edit-expense/:id',component: ExpenseEntryComponent},
     { path: 'summary', component: ExpenseSummaryComponent },
   ] 
 },

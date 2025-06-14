@@ -26,11 +26,12 @@ import {
 
 import { providePrimeNG } from 'primeng/config';
 import { CheckboxModule } from 'primeng/checkbox';
-
+import { ProgressSpinner } from 'primeng/progressspinner';
 import { ButtonModule } from 'primeng/button';
 import MyPreset from '../mypreset';
 import { AddEditGroupComponent } from './components/add-edit-group/add-edit-group.component';
 import { GroupDashboardComponent } from './components/group-dashboard/group-dashboard.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { GroupDashboardComponent } from './components/group-dashboard/group-dash
     TranslatePipe,
     AddEditGroupComponent,
     GroupDashboardComponent,
+    LoaderComponent,
     
   ],
   bootstrap: [AppComponent],
@@ -58,7 +60,8 @@ import { GroupDashboardComponent } from './components/group-dashboard/group-dash
     CheckboxModule,
     ButtonModule,
     SelectButton,
-    PopoverModule  
+    PopoverModule,
+    ProgressSpinner
   ],
   providers: [
     TranslationService,

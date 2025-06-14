@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { GroupMember } from '../../interfaces/GroupMember';
 import { Expense } from '../../interfaces/Expense';
 import { GroupExpenseService } from '../../services/group-expense.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -13,28 +13,70 @@ import { Router } from '@angular/router';
     standalone: false
 })
 export class ExpenseEntryComponent implements OnInit {
-  expenseForm: FormGroup;
+  expenseForm!: FormGroup;
   groupMembers: GroupMember[] = [];
   expenses: Expense[] = [];
-
-
-
-  constructor(private fb: FormBuilder, private groupExpenseService: GroupExpenseService, private router: Router) {
-    this.expenseForm = this.fb.group({
-      expenseName: ['', Validators.required],
-      amount: [null, [Validators.required, Validators.min(1)]],
-      paidBy: ['', Validators.required],
-      splitBetween: this.fb.array([], Validators.required)
-    });
+  currentId!: number;
+  currentExpense!: Expense;
+  private lastExpenseId: number = 0;
+  
+  constructor(
+    private fb: FormBuilder, 
+    private groupExpenseService: GroupExpenseService, 
+    private router: Router,
+    private route: ActivatedRoute ) 
+    {
+   
   }
 
   ngOnInit(): void {
     this.groupMembers = this.groupExpenseService.getMembers();
     this.expenses = this.groupExpenseService.getExpenses();
+    // Set the lastExpenseId to the highest existing ID
+    this.lastExpenseId = this.calculateLastExpenseId();
 
-    if (this.groupMembers.length) {
-      this.expenseForm.patchValue({ paidBy: this.groupMembers[0].name });
+    if (this.groupMembers.length && this.expenseForm) {
+      this.expenseForm?.patchValue({ paidBy: this.groupMembers[0].name });
     }
+
+    this.currentId = this.captureIdFromURL()
+    if(this.currentId){
+      const expense = this.groupExpenseService.getSingleExpense(this.currentId)
+      if (expense) {
+        this.currentExpense = expense;
+        console.log(this.currentExpense);
+        
+        this.generateExpenseForm(this.currentExpense)
+      } else {
+        this.generateExpenseForm(null)
+      }
+    }else {
+      this.generateExpenseForm(null)
+    }
+  }
+
+    private captureIdFromURL() {
+    return Number(this.route.snapshot.paramMap.get('id'));
+  }
+
+  generateExpenseForm(expense: Expense | null){
+     this.expenseForm = new FormGroup({
+      expenseName: new FormControl( expense? this.currentExpense.expenseName:  '', Validators.required),
+      amount: new FormControl(expense? this.currentExpense.amount: null, [Validators.required, Validators.min(1)]),
+      paidBy: new FormControl(expense? this.currentExpense.paidBy:'', Validators.required),
+      splitBetween: new FormArray(expense ? this.currentExpense.splitBetween.map(name => new FormControl(name)): [], Validators.required)
+    });
+  }
+
+
+  private calculateLastExpenseId(): number {
+    if (!this.expenses.length) return 0;
+    return Math.max(...this.expenses.map(expense => expense.id));
+  }
+
+  private generateUniqueId(): number {
+    this.lastExpenseId++;
+    return this.lastExpenseId;
   }
 
   get splitBetween(): FormArray {
@@ -63,24 +105,32 @@ export class ExpenseEntryComponent implements OnInit {
       alert('Please fill in all fields and select at least one member for splitting.');
       return;
     }
+
     const formValue = this.expenseForm.value;
     const expense: Expense = {
+      id: this.currentExpense? this.currentExpense.id : this.generateUniqueId(),
       expenseName: formValue.expenseName,
       amount: formValue.amount,
       paidBy: formValue.paidBy,
       splitBetween: formValue.splitBetween
     };
 
-    this.groupExpenseService.addExpense(expense);
-    this.expenses = this.groupExpenseService.getExpenses();
-    this.splitBetween.clear();
-    this.expenseForm.reset();
+    if(this.currentExpense){
+      this.groupExpenseService.editExpense(this.currentId,expense)
+    }else {
+      this.groupExpenseService.addExpense(expense);
+    }
 
-    if (this.groupMembers.length) {
-      this.expenseForm.patchValue({ paidBy: this.groupMembers[0].name });
+    
+    this.expenses = this.groupExpenseService.getExpenses();
+    this.expenseForm.reset();
+    
+    if (this.groupMembers.length && this.expenseForm) {
+      this.expenseForm?.patchValue({ paidBy: this.groupMembers[0].name });
     }
     this.router.navigate(['/group-dashboard']);
   }
+
 
 
 }
