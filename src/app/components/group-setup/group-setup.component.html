@@ -2,7 +2,8 @@
   <div class=" justify-center  py-3 w-full  h-full">
     <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full ">
       <div class="flex items-center gap-2 mb-2 md:mb-5 mt-2">
-        <span class="p-2 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-300/20  text-primary  flex justify-center items-center"><i
+        <span
+          class="p-2 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-300/20  text-primary  flex justify-center items-center"><i
             class="pi pi-users text-base"></i></span>
         <h1 class="text-lg lg:text-xl  font-bold"> {{groupName}} </h1>
       </div>
@@ -13,11 +14,12 @@
       <form class="" [formGroup]="membersForm" (ngSubmit)="addmember()">
 
         <div class="relative w-100 flex flex-col md:flex-row gap-3 md:gap-1 align-items-stretch">
-          <input type="text" ngClass="{'border-red-500': memberName.invalid && memberName.touched}"
-            class="bg-transparent grow text-sm border border-slate-300  rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
+          <input type="text"
+            [ngClass]="{'border-red-500': membersForm.get('memberName')?.invalid && membersForm.get('memberName')?.touched }"
+            class="bg-transparent grow text-sm border   rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
             placeholder="{{ 'member_name' | translate | async }}" formControlName="memberName" />
-          <input type="text" ngClass="{'border-red-500': memberEmail.invalid && memberEmail.touched}"
-            class="bg-transparent grow text-sm border border-slate-300  rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
+          <input type="text"  [ngClass]="{'border-red-500': membersForm.get('memberEmail')?.invalid && membersForm.get('memberEmail')?.touched }"
+            class="bg-transparent grow text-sm border   rounded-lg px-3 py-3 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primay-300"
             placeholder="{{ 'member_email' | translate | async }} ({{'optional' | translate | async}})"
             formControlName="memberEmail" />
           <button [disabled]="membersForm.invalid"
@@ -61,6 +63,12 @@
               </span>
             </div>
           </nav>
+          <div class="h-full " *ngIf="!groupMembers.length">
+            <div class="flex flex-col items-start justify-سفشقف gap-2 min-h-[250px] py-4">
+              <p class="text-muted-color mb-0 text-sm ">{{'no_member_added' | translate | async}}</p>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -70,8 +78,8 @@
         class="bg-emphasis rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
         {{ 'back' | translate | async }}
       </button>
-      <button [routerLink]="['/group-dashboard']"
-        class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center">
+      <button [routerLink]="['/group-dashboard']" [disabled]="!groupMembers.length"
+        class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center disabled:bg-primary-300">
         {{ 'continue' | translate | async }}
       </button>
     </div>

@@ -27,7 +27,7 @@
         <div class="px-1 py-3 md:p-3  border-b  settlement-item  flex items-center justify-between gap-3 last:border-b-0"
           *ngFor="let settlement of settlements">
           <div class="flex items-center">
-            <div class="me-2 grid place-items-center">
+            <div class="me-3 grid place-items-center">
               <span class="avatar bg-red-100 dark:bg-red-400/10 text-red-400 dark:text-400 p-2 md:p-2.5 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <circle cx="12" cy="6" r="4" fill="currentColor" />
@@ -43,7 +43,7 @@
           </div>
 
           <div class="flex items-center">
-            <p class="font-bold text-sm md:text-lg">$ {{ settlement.amount | number : "1.2-2" }}</p>
+            <p class="font-bold text-sm md:text-base">$ {{ settlement.amount | number : "1.2-2" }}</p>
             <div class="arrow-icon">
               <svg class="text-muted-color" xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 16 16">
               <path fill="currentColor" fill-rule="evenodd"
@@ -57,7 +57,7 @@
               <span class="font-medium block text-sm md:text-base">{{ settlement.to }}</span>
               <span class="text-sm text-muted-color hidden md:block">{{ "will_recice" | translate | async }}</span>
             </div>
-            <div class="ms-2 grid place-items-center">
+            <div class="ms-3 grid place-items-center">
               <span class="avatar bg-green-100 dark:bg-green-300/10 text-green-400 p-2 md:p-2.5 relative rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <circle cx="12" cy="6" r="4" fill="currentColor" />

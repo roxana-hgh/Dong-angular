@@ -5,8 +5,8 @@
                 <div class="p-3 lg:px-4 lg:py-5 bg-primary rounded-t-lg">
                     <h5 class="font-bold text-xl mb-3 text-primary-contrast">{{groupName}}</h5>
                     <div class="flex items-center justify-between w-full">
-                        <span class="text-sm  block text-primary-contrast">{{groupMembers.length}} {{'members' | translate | async }}</span>
-                        <span class="text-sm block  text-primary-contrast"><small>{{'total_amount' | translate | async }} </small> $ {{this.totalExpensesAmout}}</span>
+                        <span class="text-xs  block text-primary-contrast">{{groupMembers.length}} {{'members' | translate | async }}</span>
+                        <span class="text-sm block  text-primary-contrast"><small>{{'total_amount' | translate | async }} ${{this.totalExpensesAmout}}</small></span>
                     </div>
 
                 </div>
@@ -46,7 +46,7 @@
             
             <div class="border rounded-lg col-span-3  md:col-span-2 p-3 lg:p-4 shadow-sm">
                 <div class="flex items-center justify-between px-1 py-2 mb-1 md:mb-3">
-                    <h1 class="text-lg lg:text-xl m-0 font-bold"> {{ 'expenses_list' | translate | async }}</h1>
+                    <h1 class="text-base lg:text-lg m-0 font-bold"> {{ 'expenses_list' | translate | async }}</h1>
                     <button routerLink="/expenses"
                         class=" rounded-full bg-primary text-primary-contrast flex px-3 py-1 justify-center items-center gap-2 text-center text-base transition-all active:shadow-none cursor-pointer">
                         <span class="text-sm">{{'add_expense' | translate | async }}</span>

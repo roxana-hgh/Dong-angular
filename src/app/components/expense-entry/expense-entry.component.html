@@ -4,30 +4,31 @@
   <app-loader></app-loader>
 </div>
     <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full " *ngIf="expenseForm">
-      <h1 class="text-lg lg:text-xl mb-1 md:mb-3 mt-2 font-bold" *ngIf="!currentId; else editExpense"> {{ 'add_expense' | translate | async }}</h1>
-      
+      <h1 class="text-base lg:text-lg mb-1 md:mb-3 mt-2 font-bold" *ngIf="!currentId; else editExpense"> {{ 'add_expense' | translate | async }}</h1>
+      <p class="text-muted-color text-sm mb-3" *ngIf="!currentId; else editExpense">{{"add_expense_desc" | translate | async}}</p>
     <ng-template #editExpense>
-      <h1 class="text-lg lg:text-xl mb-1 md:mb-3 mt-2 font-bold" >{{ "edit" | translate | async }} {{"expenses" | translate | async }}</h1>
+      <h1 class="text-base lg:text-lg mb-2 md:mb-3 mt-2 font-bold" >{{ "edit" | translate | async }} {{"expenses" | translate | async }}</h1>
     </ng-template>
       
       <form [formGroup]="expenseForm" (ngSubmit)="addExpense()" action="">
-        <div class="">
+        <div class="mt-2">
           <div class="w-full ">
             <div class="py-2 my-2">
               <label class="block mb-3 font-bold text-sm px-1 ">
                 {{ 'expense_name' | translate | async }}
               </label>
-              <input formControlName="expenseName"
-                class="w-full  text-sm border border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
+              <input formControlName="expenseName" [ngClass]="{'border-red-500': expenseForm.get('expenseName')?.invalid && expenseForm.get('expenseName')?.touched }"
+                class="w-full  text-sm border  rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
                 placeholder="{{ 'expense_name_placeholder' | translate | async }}" />
+                <small class="text-red-500 mt-2 block px-1"></small>
             </div>
 
             <div class="py-2 my-2">
               <label class="block mb-3 font-bold text-sm px-1">
                 {{ 'expense_amount' | translate | async }}
               </label>
-              <input formControlName="amount" type="number"
-                class="w-full  text-sm border border-slate-200 rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
+              <input formControlName="amount" type="number" [ngClass]="{'border-red-500': expenseForm.get('amount')?.invalid && expenseForm.get('amount')?.touched }"
+                class="w-full  text-sm border rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
                 placeholder="{{ 'expense_amount_placeholder' | translate | async }}" />
             </div>
 
@@ -36,8 +37,8 @@
                 {{ 'who_payed' | translate | async }}
               </label>
               <div class="relative">
-                <select formControlName="paidBy"
-                  class="w-full text-sm border border-slate-200 rounded-lg pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow-md appearance-none cursor-pointer">
+                <select formControlName="paidBy" [ngClass]="{'border-red-500': expenseForm.get('paidBy')?.invalid && expenseForm.get('paidBy')?.touched }"
+                  class="w-full text-sm border  rounded-lg pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none  hover:border-slate-300 focus:shadow-md appearance-none cursor-pointer">
                   <option *ngFor="let member of groupMembers" [value]="member.name">
                     {{ member.name }}
                   </option>
@@ -91,7 +92,7 @@
             {{ 'cancel' | translate | async }}
           </button>
           <button [disabled]="expenseForm.invalid" type="submit"
-            class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center">
+            class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center disabled:bg-primary-300">
            <span *ngIf="!currentId;else editExpenseBtn">
              {{ 'add_expense' | translate | async }}
            </span>
