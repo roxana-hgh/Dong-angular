@@ -18,7 +18,7 @@ export class GroupSetupComponent {
 
   ngOnInit() {
     this.membersForm = new FormGroup({
-      memberName: new FormControl(null, Validators.required),
+      memberName: new FormControl(null, [Validators.required, Validators.pattern(/[\S]/g)]),
       memberEmail: new FormControl(null, Validators.email),
     });
 

@@ -5,3 +5,11 @@ export interface Expense {
   paidBy: string;
   splitBetween: string[]; // List of member names sharing the expense
 }
+
+export interface ExpenseDetail {
+  expenseName: string;
+  paidBy: string;
+  totalAmount: number;
+  contribution: number;
+  isPayee: boolean;
+}

@@ -115,7 +115,10 @@
                       {{ "settled" | translate | async }}
                     </ng-container>
                   </span>
-                  <span class="ml-2 text-slate-300 text-sm">{{ isMemberExpanded(summary.name) ? "▼" : "►" }}</span>
+                  <span class="msS-2 text-slate-300 text-sm collapse-icon">
+                    <i class="pi  {{ isMemberExpanded(summary.name) ? 'pi-angle-down' : 'pi-angle-right' }}" [ngClass]="" ></i>
+
+                  </span>
                 </div>
               </div>
 

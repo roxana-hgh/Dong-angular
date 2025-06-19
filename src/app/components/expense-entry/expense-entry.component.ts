@@ -61,7 +61,7 @@ export class ExpenseEntryComponent implements OnInit {
 
   generateExpenseForm(expense: Expense | null){
      this.expenseForm = new FormGroup({
-      expenseName: new FormControl( expense? this.currentExpense.expenseName:  '', Validators.required),
+      expenseName: new FormControl( expense? this.currentExpense.expenseName:  '', [Validators.required, Validators.pattern(/[\S]/g)]),
       amount: new FormControl(expense? this.currentExpense.amount: null, [Validators.required, Validators.min(1)]),
       paidBy: new FormControl(expense? this.currentExpense.paidBy:'', Validators.required),
       splitBetween: new FormArray(expense ? this.currentExpense.splitBetween.map(name => new FormControl(name)): [], Validators.required)

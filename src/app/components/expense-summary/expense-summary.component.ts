@@ -2,24 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { GroupExpenseService } from '../../services/group-expense.service';
 import { GroupMember } from '../../interfaces/GroupMember';
 import { Expense } from '../../interfaces/Expense';
-import { Settlement } from '../../interfaces/Settlement';
+import { MemberSummary, Settlement } from '../../interfaces/Settlement';
 
 
-interface ExpenseDetail {
-  expenseName: string;
-  paidBy: string;
-  totalAmount: number;
-  contribution: number;
-  isPayee: boolean;
-}
 
-interface MemberSummary {
-  name: string;
-  totalOwed: number;        // What they owe in total
-  totalPaid: number;        // What they paid in total
-  netBalance: number;       // Positive means they're owed money, negative means they owe
-  details: ExpenseDetail[];
-}
+
+
 
 @Component({
     selector: 'app-expense-summary',

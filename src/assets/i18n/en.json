@@ -68,8 +68,7 @@
   "edit": "Edit",
   "total_amount": "Total Amount",
   "needs_pay": "needs to pay",
-  "will_recice": "will receive"
+  "will_recice": "will receive",
+  "this_field_required": "This field is required"
 
- 
- 
 }

@@ -3,6 +3,7 @@ import { GroupExpenseService } from '../../services/group-expense.service';
 import { Expense } from '../../interfaces/Expense';
 import { Popover } from 'primeng/popover';
 import { Router } from '@angular/router';
+import { MemberSummary } from '../../interfaces/Settlement';
 
 @Component({
   selector: 'app-group-dashboard',
