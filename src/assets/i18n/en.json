@@ -53,6 +53,7 @@
   "group_name_required": "Group name is required",
   "no_member_added": "No Member added yet!",
   "description": "Description",
+  "no_desctiption": "No description Added for this Group",
   "optional": "Optional",
   "cancel": "cancel",
   "creat_group": "Create a new group",

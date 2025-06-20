@@ -14,7 +14,7 @@ import { MemberSummary } from '../../interfaces/Settlement';
 export class GroupDashboardComponent implements OnInit {
   groupMembers: string[] = [];
   expenses: Expense[] = [];
-  groupName: string = '';
+  groupdetail: { name: string; description?: string } = {name: ''};
   totalExpensesAmout: number = 0
   selectedExpenseId: number | null = null;
   constructor(private groupExpenseService: GroupExpenseService, private router: Router) {}
@@ -25,7 +25,7 @@ export class GroupDashboardComponent implements OnInit {
       .getMembers()
       .map((member) => member.name);
 
-    this.groupName = this.groupExpenseService.getGroupDetails().name;
+    this.groupdetail = this.groupExpenseService.getGroupDetails();
 
     this.expenses = this.groupExpenseService.getExpenses();
     this.calculateTotalAmount()
