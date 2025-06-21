@@ -48,7 +48,7 @@
                     (click)="calculationType = type.value; CalctypeChange(); op.hide()">
 
                     <div>
-                      <span class="text-sm">{{ type.label }}</span>
+                      <span class="text-sm">{{ type.label | translate | async  }}</span>
 
                     </div>
                   </li>

@@ -70,6 +70,9 @@
   "total_amount": "Total Amount",
   "needs_pay": "needs to pay",
   "will_recice": "will receive",
-  "this_field_required": "This field is required"
+  "this_field_required": "This field is required",
+  "direct_payment_logic": "Direct payment Logic",
+  "minified_transactions" : "Minified transactions"
+
 
 }

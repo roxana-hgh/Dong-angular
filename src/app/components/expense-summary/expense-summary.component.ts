@@ -4,6 +4,7 @@ import { GroupMember } from '../../interfaces/GroupMember';
 import { Expense } from '../../interfaces/Expense';
 import { MemberSummary, Settlement } from '../../interfaces/Settlement';
 import { Popover } from 'primeng/popover';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-expense-summary',
@@ -24,17 +25,25 @@ export class ExpenseSummaryComponent implements OnInit {
 
    @ViewChild('op') op!: Popover;
 
-  constructor(private groupExpenseService: GroupExpenseService) {}
+  constructor(private groupExpenseService: GroupExpenseService, private translate: TranslationService) {}
 
   calculationTypeOptions: any[] = [
-    { label: 'Direct payment Logic', value: 'direct' },
-    { label: 'Minified transactions', value: 'minified' },
+    { label: this.translate.getTranslation('direct_payment_logic'), value: 'direct' },
+    { label: this.translate.getTranslation('minified_transactions'), value: 'minified' },
   ];
 
   calculationType: string = 'direct';
 
   ngOnInit(): void {
     this.loadData();
+    this.translate.getTranslations().subscribe(translations => {
+    if (Object.keys(translations).length > 0) {
+      this.calculationTypeOptions = [
+        { label: this.translate.getTranslation('direct_payment_logic'), value: 'direct' },
+        { label: this.translate.getTranslation('minified_transactions'), value: 'minified' },
+      ];
+    }
+  });
   }
 
  toggle(event: any) {

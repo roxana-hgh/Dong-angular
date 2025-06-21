@@ -70,6 +70,8 @@
     "total_amount": "مجموع مبلغ",
     "needs_pay": "باید پرداخت کند",
     "will_recice": "دریافت خواهد کرد",
-    "this_field_required": "این فیلد اجباری می باشد"
+    "this_field_required": "این فیلد اجباری می باشد",
+    "direct_payment_logic": "پرداخت مستقیم",
+    "minified_transactions" : "کمترین تراکنش"
     
   }
