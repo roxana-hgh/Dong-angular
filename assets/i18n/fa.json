@@ -52,6 +52,7 @@
     "group_name_placeholder": "مانند سفر تابستانی",
     "group_name_required": "نام گروه الزامی است",
     "description": "توضیحات ",
+    "no_desctiption": "توضیحاتی برای گروه وارد نشده",
     "optional": "اختیاری",
     "cancel": "لغو",
     "creat_group": "ساخت گروه جدید",
@@ -68,5 +69,7 @@
     "edit": "ویرایش",
     "total_amount": "مجموع مبلغ",
     "needs_pay": "باید پرداخت کند",
-    "will_recice": "دریافت خواهد کرد"
+    "will_recice": "دریافت خواهد کرد",
+    "this_field_required": "این فیلد اجباری می باشد"
+    
   }
