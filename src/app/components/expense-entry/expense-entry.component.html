@@ -1,15 +1,16 @@
-<div class="py-3  min-h-screen">
+<div class="md:py-2 py-1 md:min-h-screen">
   <div class="flex justify-center  py-3 w-full  h-full">
     <div *ngIf="(currentId && !expenses) || !expenseForm" class="loader p-4 my-5 m-2">
-  <app-loader></app-loader>
-</div>
+      <app-loader></app-loader>
+    </div>
     <div class="card border shadow-sm rounded-lg lg:p-5 p-4  w-full " *ngIf="expenseForm">
-      <h1 class="text-base lg:text-lg mb-1 md:mb-3 mt-2 font-bold" *ngIf="!currentId; else editExpense"> {{ 'add_expense' | translate | async }}</h1>
+      <h1 class="text-base lg:text-lg mb-1 md:mb-3 mt-2 font-bold" *ngIf="!currentId; else editExpense"> {{
+        'add_expense' | translate | async }}</h1>
       <p class="text-muted-color text-sm mb-3" *ngIf="!currentId">{{"add_expense_desc" | translate | async}}</p>
-    <ng-template #editExpense>
-      <h1 class="text-base lg:text-lg mb-2 md:mb-3 mt-2 font-bold" >{{ "edit" | translate | async }} {{"expenses" | translate | async }}</h1>
-    </ng-template>
-      
+      <ng-template #editExpense>
+        <h1 class="text-base lg:text-lg mb-2 md:mb-3 mt-2 font-bold">{{ "edit" | translate | async }} {{"expenses" |
+          translate | async }}</h1>
+      </ng-template>
       <form [formGroup]="expenseForm" (ngSubmit)="addExpense()" action="">
         <div class="mt-2">
           <div class="w-full ">
@@ -17,29 +18,34 @@
               <label class="block mb-3 font-bold text-sm px-1 ">
                 {{ 'expense_name' | translate | async }}
               </label>
-              <input formControlName="expenseName" [ngClass]="{'border-red-500': expenseForm.get('expenseName')?.invalid && expenseForm.get('expenseName')?.touched }"
-                class="w-full  text-sm border  rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
+              <input formControlName="expenseName"
+                [ngClass]="{'border-red-500': expenseForm.get('expenseName')?.invalid && expenseForm.get('expenseName')?.touched }"
+                class="w-full  text-sm border  rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary-400 hover:border-primary-300 focus:shadow"
                 placeholder="{{ 'expense_name_placeholder' | translate | async }}" />
-                <small class="text-red-500 mt-2 block px-1" *ngIf="expenseForm.get('expenseName')?.invalid && expenseForm.get('expenseName')?.touched">{{"this_field_required" | translate | async }}</small>
+              <small class="text-red-500 mt-2 block px-1"
+                *ngIf="expenseForm.get('expenseName')?.invalid && expenseForm.get('expenseName')?.touched">{{"this_field_required"
+                | translate | async }}</small>
             </div>
-
             <div class="py-2 my-2">
               <label class="block mb-3 font-bold text-sm px-1">
                 {{ 'expense_amount' | translate | async }}
               </label>
-              <input formControlName="amount" type="number" [ngClass]="{'border-red-500': expenseForm.get('amount')?.invalid && expenseForm.get('amount')?.touched }"
-                class="w-full  text-sm border rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
+              <input formControlName="amount" type="number"
+                [ngClass]="{'border-red-500': expenseForm.get('amount')?.invalid && expenseForm.get('amount')?.touched }"
+                class="w-full  text-sm border rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary-400 hover:border-primary-300 focus:shadow"
                 placeholder="{{ 'expense_amount_placeholder' | translate | async }}" />
-                 <small class="text-red-500 mt-2 block px-1" *ngIf="expenseForm.get('amount')?.invalid && expenseForm.get('amount')?.touched">{{"this_field_required" | translate | async }}</small>
+              <small class="text-red-500 mt-2 block px-1"
+                *ngIf="expenseForm.get('amount')?.invalid && expenseForm.get('amount')?.touched">{{"this_field_required"
+                | translate | async }}</small>
             </div>
-
             <div class="py-2 my-2">
               <label class="block mb-3 font-bold text-sm px-1 ">
                 {{ 'who_payed' | translate | async }}
               </label>
               <div class="relative">
-                <select formControlName="paidBy" [ngClass]="{'border-red-500': expenseForm.get('paidBy')?.invalid && expenseForm.get('paidBy')?.touched }"
-                  class="w-full text-sm border  rounded-lg pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none  hover:border-slate-300 focus:shadow-md appearance-none cursor-pointer">
+                <select formControlName="paidBy"
+                  [ngClass]="{'border-red-500': expenseForm.get('paidBy')?.invalid && expenseForm.get('paidBy')?.touched }"
+                  class="w-full text-sm border  rounded-lg pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none  hover:border-primary-300 focus:shadow-md appearance-none cursor-pointer">
                   <option *ngFor="let member of groupMembers" [value]="member.name">
                     {{ member.name }}
                   </option>
@@ -50,14 +56,15 @@
                     d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                 </svg>
               </div>
-               <small class="text-red-500 mt-2 block px-1" *ngIf="expenseForm.get('paidBy')?.invalid && expenseForm.get('paidBy')?.touched">{{"this_field_required" | translate | async }}</small>
+              <small class="text-red-500 mt-2 block px-1"
+                *ngIf="expenseForm.get('paidBy')?.invalid && expenseForm.get('paidBy')?.touched">{{"this_field_required"
+                | translate | async }}</small>
             </div>
             <div class="py-2 my-2">
               <div class="relative max-w-xl flex w-full flex-col ">
                 <label class="block mb-3 font-bold text-sm px-1 ">
                   {{ 'split_between' | translate | async }}
                 </label>
-               
                 <nav class="flex flex-col  gap-1 rounded-xl py-2  ">
                   <div *ngFor="let member of groupMembers; let i = index"
                     class="flex w-full items-center rounded-lg p-0 transition-all ">
@@ -66,7 +73,7 @@
                         <input type="checkbox" id="member-checklist-{{ i }}"
                           [checked]="expenseForm.value.splitBetween.includes(member.name)"
                           (change)="onCheckboxChange(member.name, $event)"
-                          class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded  hover:shadow-md border border-slate-300 checked:bg-primary checked:border-primary" />
+                          class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded  hover:shadow-md border border-primary-300 checked:bg-primary checked:border-primary" />
                         <span
                           class="absolute text-primary-contrast opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
@@ -84,26 +91,23 @@
                   </div>
                 </nav>
               </div>
-
             </div>
           </div>
         </div>
         <div class="flex justify-between border-t gap-2 mt-3 pt-4">
-
           <button type="button" [routerLink]="['/group-dashboard']"
             class="bg-emphasis text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
             {{ 'cancel' | translate | async }}
           </button>
           <button [disabled]="expenseForm.invalid" type="submit"
             class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center disabled:bg-primary-300">
-           <span *ngIf="!currentId;else editExpenseBtn">
-             {{ 'add_expense' | translate | async }}
-           </span>
-           <ng-template #editExpenseBtn>
-             {{ "edit" | translate | async }}
+            <span *ngIf="!currentId;else editExpenseBtn">
+              {{ 'add_expense' | translate | async }}
+            </span>
+            <ng-template #editExpenseBtn>
+              {{ "edit" | translate | async }}
             </ng-template>
           </button>
-
         </div>
       </form>
     </div>

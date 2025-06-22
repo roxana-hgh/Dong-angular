@@ -1,11 +1,11 @@
-<div class="py-3 min-h-screen">
+<div class="md:py-2 py-1 md:min-h-screen">
   <div class="justify-center py-3 w-full h-full">
     <div class="grid grid-cols-3 gap-3 items-start">
       <div class="rounded-lg col-span-3 md:col-span-1 order-last md:order-first">
         <div class="p-3 lg:px-4 lg:py-5 bg-primary rounded-t-lg border">
           <div class="flex gap-1 mb-2 items-center">
-            <!-- <span class="p-2 w-8 h-8 rounded-full bg-primary-contrast   text-primary  flex justify-center items-center"><i
-                                class="pi pi-users text-sm"></i></span> -->
+            <!-- <span class="p-2 w-8 h-8 rounded-full bg-primary-contrast   text-primary  flex justify-center items-center">
+              <i class="pi pi-users text-sm"></i></span> -->
             <h5 class="font-bold text-xl m-0 text-primary-contrast">
               {{ groupdetail.name }}
             </h5>
@@ -17,14 +17,13 @@
                 ${{this.totalExpensesAmout}}</small></span>
           </div>
         </div>
-
         <div class="p-4 border border-t-0 rounded-b-lg">
           <div class="flex items-center justify-between mb-2">
             <h6 class="text-sm font-semibold">
               {{ "members" | translate | async
               }}<span class="">({{ groupMembers.length }})</span>
             </h6>
-            <a href="/group-member"
+            <a [routerLink]='["/group-member"]'
               class="text-xs decoration-0 border-b border-transparent text-primary hover:border-b-current">
               {{ "add_member" | translate | async }}</a>
           </div>
@@ -48,18 +47,11 @@
             </div>
           </nav>
         </div>
-
         <div class="p-4 mt-3 border rounded-lg">
           <div class="flex items-center justify-between mb-2 w-full">
             <h3 class="text-sm  m-0 font-bold">
               {{ 'description' | translate | async }}
             </h3>
-            <!-- <span class="text-xs block text-primary"
-              ><span
-                >{{ "total_amount" | translate | async }} ${{
-                  this.totalExpensesAmout
-                }}</span
-              ></span> -->
           </div>
           <p class="text-sm text-zinc-600 dark:text-zinc-400" *ngIf="groupdetail.description">
             {{groupdetail.description}}
@@ -67,38 +59,34 @@
           <p class="text-sm text-zinc-600 dark:text-zinc-400" *ngIf="!groupdetail.description">
             {{ 'no_desctiption' | translate | async }}
           </p>
-
-
         </div>
       </div>
-
       <div class="border rounded-lg col-span-3 md:col-span-2 p-3 lg:p-4 shadow-sm">
-        <div class="flex items-center justify-between px-1 py-2 mb-1 md:mb-3">
-          <h1 class="text-base lg:text-lg m-0 font-bold">
+        <div class="flex items-center justify-between px-1 py-1 mb-1 md:mb-3">
+          <h1 class="text-base  m-0 font-bold">
             {{ "expenses_list" | translate | async }}
           </h1>
           <button routerLink="/expenses"
-            class="rounded-full bg-primary text-primary-contrast flex px-3 py-1 justify-center items-center gap-2 text-center text-base transition-all active:shadow-none cursor-pointer">
+            class="rounded-full bg-primary text-primary-contrast flex px-3 py-1 justify-center items-center gap-2 text-center text-sm md:text-base transition-all active:shadow-none cursor-pointer">
             <span class="text-sm">{{ "add_expense" | translate | async }}</span>
           </button>
         </div>
-        <div class="md:min-h-[275px]">
+        <div class="md:min-h-[250px]">
           <div class="relative" *ngIf="expenses.length > 0">
-            <div class="rounded-lg mt-3 min-h-[210px]">
+            <div class="rounded-lg mt-3 min-h-[180px] md:min-h-[200px]">
               <div class="p-1 py-2 lg:py-3 flex items-center gap-3 border-b expense-item"
                 *ngFor="let expense of expenses; index as item">
                 <span
-                  class="icon bg-primary-100 rounded-full w-12 h-12 text-primary dark:bg-primary-300/20 p-2 flex justify-center items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32">
+                  class="icon bg-primary-100 rounded-full md:w-10 md:h-10 text-primary dark:bg-primary-300/20 p-2 flex justify-center items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
                     <path fill="currentColor"
                       d="M19.668 4.108a.5.5 0 0 0-.705.08L14.36 10h-2.551l5.587-7.054a2.5 2.5 0 0 1 3.522-.4l5.147 4.123a2.5 2.5 0 0 1 .522 3.33h-2.614l.907-1.052a.5.5 0 0 0-.066-.717L22.31 6.224L19.342 10h-2.544l3.95-5.026zM6 7a3 3 0 0 0-3 3v14.5A4.5 4.5 0 0 0 7.5 29h17a4.5 4.5 0 0 0 4.5-4.5v-9a4.5 4.5 0 0 0-4.5-4.5H6a1 1 0 1 1 0-2h4.58l1.596-2zm15 12h3a1 1 0 1 1 0 2h-3a1 1 0 1 1 0-2" />
                   </svg>
                 </span>
                 <div class="">
-                  <p class="m-0 font-bold text-base">
+                  <p class="m-0 font-bold text-sm md:text-base">
                     {{ expense.expenseName }}
                   </p>
-
                   <span class="text-muted text-xs hidden md:block">{{ "split_between" | translate | async }}
                     {{ expense.splitBetween.join(" , ") }}</span>
                 </div>
@@ -145,7 +133,7 @@
             </div>
           </div>
           <div class="h-full" *ngIf="!expenses.length">
-            <div class="flex flex-col items-center justify-center gap-2 min-h-[250px] py-4">
+            <div class="flex flex-col items-center justify-center gap-2 min-h-[210px] py-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                 class="text-neutral-400 mb-2">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -173,15 +161,15 @@
         </div>
       </div>
     </div>
-    <div class="flex md:hidden justify-between gap-2 mt-3 pt-3 border-t">
-              <button type="button" [routerLink]="['/new-group']"
-                class="bg-emphasis rounded-full w-full lg:w-1/4 text-sm py-2 px-3 flex items-center justify-center">
-                {{ "back_to_group_setup" | translate | async }}
-              </button>
-              <button [routerLink]="['/summary']"
-                class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/4 text-sm py-2 px-4 flex items-center justify-center">
-                {{ "view_summary" | translate | async }}
-              </button>
-            </div>
+    <div class="flex md:hidden justify-between gap-2 my-3 py-3 border-t">
+      <button type="button" [routerLink]="['/new-group']"
+        class="bg-emphasis rounded-full w-full lg:w-1/4 text-sm py-2 px-3 flex items-center justify-center">
+        {{ "back_to_group_setup" | translate | async }}
+      </button>
+      <button [routerLink]="['/summary']"
+        class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/4 text-sm py-2 px-4 flex items-center justify-center">
+        {{ "view_summary" | translate | async }}
+      </button>
+    </div>
   </div>
 </div>
