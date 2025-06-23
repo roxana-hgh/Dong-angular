@@ -8,7 +8,7 @@ describe('AddEditGroupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AddEditGroupComponent]
+      imports: [AddEditGroupComponent]
     })
     .compileComponents();
 

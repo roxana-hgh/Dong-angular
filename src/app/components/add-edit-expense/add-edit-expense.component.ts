@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
-import { GroupMember } from '../../interfaces/GroupMember';
+import { Component } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Expense } from '../../interfaces/Expense';
-import { GroupExpenseService } from '../../services/group-expense.service';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { GroupMember } from '../../interfaces/GroupMember';
+import { GroupExpenseService } from '../../service/group-expense.service';
+import { SHARED_IMPORTS } from '../../shared/shared-imports';
 
 @Component({
-    selector: 'app-expense-entry',
-    templateUrl: './expense-entry.component.html',
-    styleUrls: ['./expense-entry.component.scss'],
-    standalone: false
+  selector: 'app-add-edit-expense',
+  imports: [SHARED_IMPORTS, ReactiveFormsModule],
+  templateUrl: './add-edit-expense.component.html',
+  styleUrl: './add-edit-expense.component.scss'
 })
-export class ExpenseEntryComponent implements OnInit {
-  expenseForm!: FormGroup;
+export class AddEditExpenseComponent {
+ expenseForm!: FormGroup;
   groupMembers: GroupMember[] = [];
   expenses: Expense[] = [];
   currentId!: number;

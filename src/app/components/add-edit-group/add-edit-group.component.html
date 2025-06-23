@@ -1,4 +1,4 @@
-<div class="md:py-2 py-1 md:min-h-screen">
+<div class="py-3  min-h-screen">
     <div class="flex justify-center  py-3 w-full  h-full">
         <div class="card border shadow-sm rounded-lg lg:px-5 p-4  w-full ">
             <h1 class="text-lg lg:text-xl mb-1 md:mb-2 mt-2 font-bold"> {{ 'creat_group' | translate | async }}</h1>
@@ -11,10 +11,13 @@
                         </label>
                         <input
                             class="w-full  text-sm border   rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
-                            [ngClass]="{'border-red-500': groupForm.get('groupName')?.invalid && groupForm.get('groupName')?.touched }"
+                            [class]="{'border-red-500': groupForm.get('groupName')?.invalid && groupForm.get('groupName')?.touched }"
                             formControlName="groupName" type="text"
                             placeholder="{{ 'group_name_placeholder' | translate | async }}" />
-                            <small class="text-red-500 px-1 mt-2 block" *ngIf="groupForm.get('groupName')?.invalid && groupForm.get('groupName')?.touched "> {{'group_name_required'| translate | async }} </small>
+                            @if(groupForm.get('groupName')?.invalid && groupForm.get('groupName')?.touched ) {
+
+                                <small class="text-red-500 px-1 mt-2 block" > {{'group_name_required'| translate | async }} </small>
+                            }
                     </div>
                     <div class="py-2 my-2">
                         <label class="block mb-3 font-bold text-sm px-1 ">
@@ -22,7 +25,7 @@
                         </label>
                         <textarea rows="4" formControlName="groupDescription" 
                             class="w-full  text-sm border  rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
-                            [ngClass]="{'border-red-500': groupForm.get('groupDescription')?.invalid && groupForm.get('groupDescription')?.touched }"
+                            [class]="{'border-red-500': groupForm.get('groupDescription')?.invalid && groupForm.get('groupDescription')?.touched }"
                             ></textarea>
                     </div>
                     <div class="flex justify-end gap-2 my-3 py-3">                       

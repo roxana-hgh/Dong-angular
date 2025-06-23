@@ -8,7 +8,7 @@ describe('GroupDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GroupDashboardComponent]
+      imports: [GroupDashboardComponent]
     })
     .compileComponents();
 

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { GroupExpenseService } from '../../services/group-expense.service';
+import { SHARED_IMPORTS } from '../../shared/shared-imports';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { GroupExpenseService } from '../../service/group-expense.service';
 import { GroupMember } from '../../interfaces/GroupMember';
 
 @Component({
   selector: 'app-group-setup',
+  imports: [SHARED_IMPORTS, ReactiveFormsModule],
   templateUrl: './group-setup.component.html',
-  styleUrl: './group-setup.component.scss',
-  standalone: false,
+  styleUrl: './group-setup.component.scss'
 })
 export class GroupSetupComponent {
   membersForm!: FormGroup;
@@ -52,4 +53,5 @@ export class GroupSetupComponent {
       .map((member) => member);
     console.log(this.groupMembers);
   }
+
 }

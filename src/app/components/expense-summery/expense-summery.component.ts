@@ -1,19 +1,23 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { GroupExpenseService } from '../../services/group-expense.service';
-import { GroupMember } from '../../interfaces/GroupMember';
+import { Component, ViewChild } from '@angular/core';
+import { Popover, PopoverModule } from 'primeng/popover';
 import { Expense } from '../../interfaces/Expense';
+import { GroupMember } from '../../interfaces/GroupMember';
 import { MemberSummary, Settlement } from '../../interfaces/Settlement';
-import { Popover } from 'primeng/popover';
-import { TranslationService } from '../../services/translation.service';
+import { GroupExpenseService } from '../../service/group-expense.service';
+import { TranslationService } from '../../service/translation.service';
+import { SHARED_IMPORTS } from '../../shared/shared-imports';
+import { SelectButton } from 'primeng/selectbutton';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-expense-summary',
-  templateUrl: './expense-summary.component.html',
-  styleUrls: ['./expense-summary.component.scss'],
-  standalone: false,
+  selector: 'app-expense-summery',
+  imports: [SHARED_IMPORTS, PopoverModule, SelectButton, FormsModule, CommonModule],
+  templateUrl: './expense-summery.component.html',
+  styleUrl: './expense-summery.component.scss'
 })
-export class ExpenseSummaryComponent implements OnInit {
-  members: GroupMember[] = [];
+export class ExpenseSummeryComponent {
+ members: GroupMember[] = [];
   expenses: Expense[] = [];
   memberSummaries: MemberSummary[] = [];
   settlements: Settlement[] = [];
@@ -27,10 +31,7 @@ export class ExpenseSummaryComponent implements OnInit {
 
   constructor(private groupExpenseService: GroupExpenseService, private translate: TranslationService) {}
 
-  calculationTypeOptions: any[] = [
-    { label: this.translate.getTranslation('direct_payment_logic'), value: 'direct' },
-    { label: this.translate.getTranslation('minified_transactions'), value: 'minified' },
-  ];
+  calculationTypeOptions: any[] = [];
 
   calculationType: string = 'direct';
 

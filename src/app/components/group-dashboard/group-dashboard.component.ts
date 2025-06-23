@@ -1,17 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { GroupExpenseService } from '../../services/group-expense.service';
-import { Expense } from '../../interfaces/Expense';
-import { Popover } from 'primeng/popover';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MemberSummary } from '../../interfaces/Settlement';
+import { Expense } from '../../interfaces/Expense';
+import { GroupExpenseService } from '../../service/group-expense.service';
+import { SHARED_IMPORTS } from '../../shared/shared-imports';
+import { Popover, PopoverModule } from 'primeng/popover';
 
 @Component({
   selector: 'app-group-dashboard',
-  standalone: false,
+  imports: [SHARED_IMPORTS, PopoverModule],
   templateUrl: './group-dashboard.component.html',
-  styleUrl: './group-dashboard.component.scss',
+  styleUrl: './group-dashboard.component.scss'
 })
-export class GroupDashboardComponent implements OnInit {
+export class GroupDashboardComponent {
   groupMembers: string[] = [];
   expenses: Expense[] = [];
   groupdetail: { name: string; description?: string } = {name: ''};
