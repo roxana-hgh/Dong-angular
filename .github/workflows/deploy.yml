@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - new-angular  # or master, change if needed
+      - new-angular 
 
 jobs:
   build-and-deploy:
