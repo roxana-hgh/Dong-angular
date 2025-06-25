@@ -27,4 +27,4 @@ jobs:
 
       - name: 🚀 Deploy to GitHub Pages
         run: |
-          npx angular-cli-ghpages --dir=dist/dong/browser
+          npx angular-cli-ghpages --dir=dist/dong/browser --no-silent --skip-cleanup
