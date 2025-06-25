@@ -1,0 +1,30 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - new-angular  # or master, change if needed
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🔨 Build Angular app
+        run: |
+          npx ng build --configuration production --base-href "https://roxana-hgh.github.io/Dong-angular/"
+
+      - name: 🚀 Deploy to GitHub Pages
+        run: |
+          npx angular-cli-ghpages --dir=dist/dong/browser --no-silent --skip-cleanup
