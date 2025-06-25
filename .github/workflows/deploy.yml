@@ -26,5 +26,10 @@ jobs:
           npx ng build --configuration production --base-href "https://roxana-hgh.github.io/Dong-angular/"
 
       - name: 🚀 Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx angular-cli-ghpages --dir=dist/dong/browser --no-silent 
+          npx angular-cli-ghpages \
+            --dir=dist/dong/browser \
+            --repo=https://x-access-token:${GH_TOKEN}@github.com/roxana-hgh/Dong-angular.git \
+            --no-silent
