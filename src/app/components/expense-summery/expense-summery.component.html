@@ -300,11 +300,11 @@
 
             <div class="flex justify-between gap-2 mt-3 md:mt-4">
                 <button type="button" [routerLink]="['/group-dashboard']"
-                    class="bg-emphasis rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
+                    class="bg-emphasis rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center text-sm">
                     {{ "back" | translate | async }}
                 </button>
                 <button (click)="shareSummary()"
-                    class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/6 py-2 px-4 flex items-center justify-center">
+                    class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/6 py-2 px-4 flex items-center text-sm justify-center">
                     {{ "share_summary" | translate | async }}
                 </button>
             </div>
