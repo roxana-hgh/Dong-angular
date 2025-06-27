@@ -57,7 +57,7 @@
   "optional": "Optional",
   "cancel": "cancel",
   "creat_group": "Create a new group",
-  "create_group_desc": "Create a new group to start sharing expenses ",
+  "create_group_desc": "Create a new group to start sharing expenses with group members ",
   "member_name": "Member Name",
   "member_email": "Member Email",
   "members": "Members",
