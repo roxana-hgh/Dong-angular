@@ -13,7 +13,7 @@
   "enter_group_name": "Enter group memebers names",
   "add_member": "Add memebers",
   "expenses": "Expenses",
-  "add_expense_desc": "Enter your Expenses details",
+  "add_expense_desc": "Enter your Expenses details to split between memebers",
   "expenses_list": "Expenses list",
   "expense_name": "Expense Name",
   "expense_name_placeholder": "Expense Name",
