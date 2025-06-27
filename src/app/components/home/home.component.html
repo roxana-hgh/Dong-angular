@@ -1,11 +1,11 @@
 <div class="p-3">
   <div class="my-3">
-    <div class="lg:w-2/3 w-full mx-auto text-center py-3">
-      <h1 class="font-bold text-2xl md:text-3xl text-center mb-4 leading-[1.3]">
+    <div class="lg:w-2/4 px-1 lg:px-0 w-full mx-auto text-center py-3">
+      <h1 class="font-bold text-xl lg:text-2xl md:text-3xl text-center mb-4 leading-[1.3]">
         {{ "home_title" | translate | async }}
       </h1>
       <p
-        class="text-muted-color text-center text-base lg:text-xl leading-[1.5] my-3"
+        class="text-muted-color text-center text-sm lg:text-base leading-[1.5] my-3"
       >
         {{ "home_description" | translate | async }}
       </p>
@@ -16,7 +16,7 @@
           [routerLink]="['/new-group']"
           label="{{ 'new_group' | translate | async }}"
           [rounded]="true"
-          styleClass=" w-full block  "
+          styleClass=" w-full block text-sm"
           class="w-full block"
         />
 
@@ -24,14 +24,14 @@
           [routerLink]="['/group']"
           label="{{ 'learn_more' | translate | async }}"
           [rounded]="true"
-          styleClass=" w-full block  "
+          styleClass=" w-full block text-sm "
           class="w-full block"
           [variant]="'outlined'"
         />
       </div>
     </div>
   </div>
-  <div class="image-container w-100 py-5 my-3 md:my-2">
+  <div class="image-container w-100 py-3 my-3 md:my-2">
     <img src="assets/images/hero.png" class="rounded-md" alt="" />
   </div>
 </div>

@@ -1,7 +1,7 @@
-<div class="md:py-2 py-1 md:min-h-screen">
-    <div class="justify-center py-3 w-full h-full">
+<div class=" py-1 md:min-h-screen">
+    <div class=" py-2 w-full h-full">
         <div class="grid grid-cols-3 gap-3 items-start">
-            <div class="rounded-lg col-span-3 md:col-span-1 order-last md:order-first">
+            <div class="rounded-lg  col-span-3 md:col-span-1 order-last md:order-first">
                 <div class="p-3 lg:px-4 lg:py-5 bg-primary rounded-t-lg border">
                     <div class="flex gap-1 mb-2 items-center">
                         <!-- <span class="p-2 w-8 h-8 rounded-full bg-primary-contrast   text-primary  flex justify-center items-center">
@@ -14,10 +14,10 @@
                         <span class="text-xs block text-primary-contrast">{{ groupMembers.length }}
                             {{ "members" | translate | async }}</span>
                         <span class="text-sm block  text-primary-contrast"><small>{{'total_amount' | translate | async}}
-                                ${{this.totalExpensesAmout}}</small></span>
+                                ${{this.totalExpensesAmout | number : "1.2-2"}}</small></span>
                     </div>
                 </div>
-                <div class="p-4 border border-t-0 rounded-b-lg">
+                <div class="p-4 shadow-sm border border-t-0 rounded-b-lg">
                     <div class="flex items-center justify-between mb-2">
                         <h6 class="text-sm font-semibold">
                             {{ "members" | translate | async
@@ -53,7 +53,7 @@
                     }
 
                 </div>
-                <div class="p-4 mt-3 border rounded-lg">
+                <div class="p-4  shadow-sm mt-3 border rounded-lg">
                     <div class="flex items-center justify-between mb-2 w-full">
                         <h3 class="text-sm  m-0 font-bold">
                             {{ 'description' | translate | async }}
@@ -78,7 +78,7 @@
                         {{ "expenses_list" | translate | async }}
                     </h1>
                     <button routerLink="/expenses"
-                        class="rounded-full bg-primary text-primary-contrast flex px-3 py-1 justify-center items-center gap-2 text-center text-sm md:text-base transition-all active:shadow-none cursor-pointer">
+                        class="rounded-full bg-primary text-primary-contrast flex px-3 py-1 justify-center items-center gap-2 text-center text-xs md:text-base transition-all active:shadow-none cursor-pointer">
                         <span class="text-sm">{{ "add_expense" | translate | async }}</span>
                     </button>
                 </div>
@@ -105,8 +105,8 @@
                                 </div>
                                 <div class="flex justify-self-end ms-auto">
                                     <div class="text-end">
-                                        <p class="m-0 font-bold text-base">
-                                            $ {{ expense.amount }}
+                                        <p class="m-0 font-bold text-sm md:text-base">
+                                            $ {{ expense.amount | number : "1.2-2" }}
                                         </p>
                                         <span class="text-muted text-xs hidden md:block">{{ "paid_by" | translate |
                                             async }}

@@ -1,16 +1,16 @@
-<div class="py-3  min-h-screen">
-    <div class="flex justify-center  py-3 w-full  h-full">
-        <div class="card border shadow-sm rounded-lg lg:px-5 p-4  w-full ">
-            <h1 class="text-lg lg:text-xl mb-1 md:mb-2 mt-2 font-bold"> {{ 'creat_group' | translate | async }}</h1>
+<div class="py-1  min-h-screen">
+    <div class="flex justify-center py-2 w-full  h-full">
+        <div class="card border shadow rounded-lg lg:px-5 p-4  w-full ">
+            <h1 class="text-lg  mb-1 md:mb-2 mt-2 font-bold"> {{ 'creat_group' | translate | async }}</h1>
             <p class="text-muted-color text-sm">{{ 'create_group_desc' | translate | async }}</p>
             <div class="py-2">
                 <form [formGroup]="groupForm" (ngSubmit)="saveGroupForm()" action="">
-                    <div class="py-2 my-2">
-                        <label class="block mb-3 font-bold text-sm px-1 ">
+                    <div class="py-2 text-sm my-2">
+                        <label class="block mb-2 font-bold text-sm px-1 ">
                             {{ 'group_name' | translate | async }}
                         </label>
                         <input
-                            class="w-full  text-sm border   rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
+                            class="w-full shandow-sm  text-sm border   rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
                             [class]="{'border-red-500': groupForm.get('groupName')?.invalid && groupForm.get('groupName')?.touched }"
                             formControlName="groupName" type="text"
                             placeholder="{{ 'group_name_placeholder' | translate | async }}" />
@@ -20,21 +20,21 @@
                             }
                     </div>
                     <div class="py-2 my-2">
-                        <label class="block mb-3 font-bold text-sm px-1 ">
+                        <label class="block mb-2 text-sm font-bold px-1 ">
                             {{ 'description' | translate | async }} ({{ 'optional' | translate | async }})
                         </label>
                         <textarea rows="4" formControlName="groupDescription" 
-                            class="w-full  text-sm border  rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
+                            class="w-full shandow-sm text-sm border  rounded-lg px-3 py-2 transition duration-300 ease focus:outline-none focus:border-primary hover:border-primary-300 focus:shadow"
                             [class]="{'border-red-500': groupForm.get('groupDescription')?.invalid && groupForm.get('groupDescription')?.touched }"
                             ></textarea>
                     </div>
-                    <div class="flex justify-end gap-2 my-3 py-3">                       
+                    <div class="flex justify-end gap-2 mt-3 py-3">                       
                          <button type="button" [routerLink]="['/']"
-                            class="bg-emphasis text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
+                            class="bg-emphasis text-sm text-neutral-600 rounded-full w-full lg:w-1/6 py-2 px-5 flex items-center justify-center">
                             {{ 'cancel' | translate | async }}
                         </button>
                         <button type="submit" [disabled]="!groupForm.valid"
-                            class="bg-primary text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center disabled:bg-primary-300">
+                            class="bg-primary text-sm text-primary-contrast rounded-full w-full lg:w-1/5  py-2 px-4 flex items-center justify-center disabled:bg-primary-300">
                             {{ 'continue' | translate | async }}
                         </button>
                     </div>

@@ -4,10 +4,11 @@ import { Expense } from '../../interfaces/Expense';
 import { GroupExpenseService } from '../../service/group-expense.service';
 import { SHARED_IMPORTS } from '../../shared/shared-imports';
 import { Popover, PopoverModule } from 'primeng/popover';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-group-dashboard',
-  imports: [SHARED_IMPORTS, PopoverModule],
+  imports: [SHARED_IMPORTS, PopoverModule, CommonModule],
   templateUrl: './group-dashboard.component.html',
   styleUrl: './group-dashboard.component.scss'
 })
